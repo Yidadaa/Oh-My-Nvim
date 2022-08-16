@@ -11,6 +11,7 @@ local options = {
   ignorecase = true,
   splitbelow = true,
   splitright = true,
+  swapfile = false,
 
   mouse = "a", -- 启用鼠标
   showmode = false, -- 不展示当前编辑状态

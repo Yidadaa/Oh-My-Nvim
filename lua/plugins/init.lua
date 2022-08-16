@@ -73,8 +73,19 @@ return packer.startup(function(use)
   use 'rmehri01/onenord.nvim'
   use "williamboman/mason.nvim"
 
-  use 'neoclide/coc.nvim'
+  -- use 'neoclide/coc.nvim'
+  use({"neovim/nvim-lspconfig"})
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+
   use "glepnir/lspsaga.nvim"
+
+  use {'ms-jpq/coq_nvim', branch = 'coq'}
+  use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
+  use {'ms-jpq/coq.thirdparty', branch = '3p'}
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
