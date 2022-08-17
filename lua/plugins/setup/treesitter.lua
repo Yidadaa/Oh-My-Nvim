@@ -8,6 +8,7 @@ configs.setup({
     "c",
     "cpp",
     "lua",
+		"javascript",
   }, -- one of "all" or a list of languages
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	highlight = {
@@ -19,11 +20,11 @@ configs.setup({
 	},
 	indent = { enable = true, disable = { "python", "css" } },
   rainbow = {
-  enable = true,
-  extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-  max_file_lines = 65536, -- Do not enable for files with more than n lines, int
-    -- colors = {}, -- table of hex strings
-    -- termcolors = {} -- table of colour name strings
+		enable = true,
+		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+		max_file_lines = 65536, -- Do not enable for files with more than n lines, int
+			-- colors = {}, -- table of hex strings
+			-- termcolors = {} -- table of colour name strings
   }
 })
 

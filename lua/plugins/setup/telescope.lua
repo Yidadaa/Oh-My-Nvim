@@ -7,22 +7,27 @@ local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
+    sorting_strategy = "ascending",
+    layout_config = {
+        prompt_position = 'top',
+    },
+
     prompt_prefix = "> ",
-    selection_caret = " ",
+    selection_caret = "- ",
     path_display = { "smart" },
 
     mappings = {
       i = {
-        ["<C-n>"] = actions.cycle_history_next,
-        ["<C-p>"] = actions.cycle_history_prev,
+        ["<C-n>"] = actions.move_selection_next,
+        ["<C-p>"] = actions.move_selection_previous,
 
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
 
         ["<esc>"] = actions.close,
 
-        ["<Down>"] = actions.move_selection_next,
-        ["<Up>"] = actions.move_selection_previous,
+        ["<Down>"] = actions.cycle_history_next,
+        ["<Up>"] = actions.cycle_history_prev,
 
         ["<CR>"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,

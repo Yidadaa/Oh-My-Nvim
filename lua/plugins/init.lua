@@ -55,7 +55,11 @@ return packer.startup(function(use)
 
   -- 补全
   use "christianchiarulli/nvim-cmp"
-  use "nvim-treesitter/nvim-treesitter"
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+  }
+
   use "nvim-treesitter/nvim-treesitter-context"
 
   use "kyazdani42/nvim-tree.lua"
@@ -91,7 +95,6 @@ return packer.startup(function(use)
     'phaazon/hop.nvim',
     branch = 'v2', -- optional but strongly recommended
     config = function()
-      -- you can configure Hop the way you like here; see :h hop-config
       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   }
