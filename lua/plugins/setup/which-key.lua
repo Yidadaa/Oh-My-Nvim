@@ -32,7 +32,7 @@ wk.register({
     n = { "<Plug>(coc-rename)", "重命名当前变量" }
   }
 }, {
-    prefix  = "<leader>"
+  prefix = "<leader>"
 })
 
 wk.register({
@@ -41,6 +41,6 @@ wk.register({
     f = { "<Plug>(coc-format-selected)", "格式化选中区域" },
   }
 }, {
-    prefix = "<leader>",
-    mode = "x"
-  })
+  prefix = "<leader>",
+  mode = "x"
+})
