@@ -64,6 +64,11 @@ return packer.startup(function(use)
 
   use "kyazdani42/nvim-tree.lua"
   use "nvim-telescope/telescope.nvim"
+  use {
+    "FeiyouG/command_center.nvim",
+    requires = { "nvim-telescope/telescope.nvim" }
+  }
+
   use "p00f/nvim-ts-rainbow"
   use 'hoob3rt/lualine.nvim'
   use "kyazdani42/nvim-web-devicons"
@@ -79,6 +84,10 @@ return packer.startup(function(use)
 
   use {'neoclide/coc.nvim', branch = 'release'}
   use 'fannheyward/telescope-coc.nvim'
+
+  use 'williamboman/mason.nvim'
+  use 'jose-elias-alvarez/null-ls.nvim'
+
   use {'ms-jpq/coq_nvim', branch = 'coq'}
   use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
   use {'ms-jpq/coq.thirdparty', branch = '3p'}
@@ -96,6 +105,33 @@ return packer.startup(function(use)
     branch = 'v2', -- optional but strongly recommended
     config = function()
       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  }
+
+  use {"ellisonleao/glow.nvim"}
+
+  use {
+      'goolord/alpha-nvim',
+      config = function ()
+          require'alpha'.setup(require'alpha.themes.dashboard'.config)
+      end
+  }
+
+  use 'ilyachur/cmake4vim'
+  use 'SantinoKeupp/telescope-cmake4vim.nvim'
+
+  -- Debug 相关
+  use 'mfussenegger/nvim-dap'
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use 'nvim-telescope/telescope-dap.nvim'
+  use 'theHamsta/nvim-dap-virtual-text'
+
+  -- 注释
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
     end
   }
 

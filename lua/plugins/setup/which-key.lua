@@ -23,6 +23,16 @@ wk.register({
   r = {
     name = "重命名操作",
     n = { "<Plug>(coc-rename)", "重命名当前变量" }
+  },
+  l = {
+    name = "Coc List 操作",
+    d = { ":CocList diagnostics<cr>", "跳转诊断信息" },
+    e = { ":CocList extensions<cr>", "跳转 coc extensions" },
+    c = { ":CocList commands<cr>", "跳转 coc commands" },
+    o = { ":CocList outline<cr>", "跳转 coc outline" },
+    s = { ":CocList -I symbols<cr>", "跳转 coc symbols" },
+    p = { ":CocListResume<cr>", "恢复上一次 coc list" },
+    r = { ":Telescope coc references<cr>", "查找所有引用" },
   }
 }, {
   prefix = "<leader>"

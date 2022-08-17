@@ -7,6 +7,7 @@ local term_opts = { silent = true }
 -- 基础键位设置
 local keymap = vim.api.nvim_set_keymap
 
+
 -- 使用空格作为 leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -43,7 +44,7 @@ keymap("i", "jj", "<ESC>", opts)
 keymap("n", "<leader><leader>", ":Telescope find_files<CR>", opts)
 
 -- Terminal
-keymap("n", "<leader>t", ":ToggleTerm<CR>a", opts)
+keymap("n", "<leader>t", ":ToggleTerm<CR>a<BS>", opts)
 function _G.set_terminal_keymaps()
   local opts = {buffer = 0}
   vim.keymap.set('t', '<esc>', [[<C-\><C-n>:ToggleTerm<CR>]], opts)
@@ -58,4 +59,16 @@ end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- 快速移动
-keymap('n', 'f', "<cmd>HopWord<cr>", {})
+keymap('n', 'f', "<cmd>HopWord<cr>", opts)
+
+function comp_key_map(mode, key, command)
+  local lead_keys = { 'M', 'A' }
+  for _, lead in pairs(lead_keys) do
+    local key = string.format('<%s-%s>', lead, key)
+    keymap(mode, key, command, opts)
+  end
+end
+
+-- 命令窗口
+comp_key_map('n', 'p', ":Telescope command_center<cr>")
+keymap('n', '<leader>p', "<cmd>Telescope command_center<cr>", opts)

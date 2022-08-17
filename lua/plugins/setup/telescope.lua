@@ -97,9 +97,9 @@ telescope.setup {
     -- }
     -- please take a look at the readme of the extension you want to configure
     coc = {
-        theme = 'ivy',
+        theme = 'dropdown',
         prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
-    }
+    },
   },
   file_ignore_patterns = {
     "node_modules",
@@ -110,3 +110,4 @@ telescope.setup {
 }
 
 telescope.load_extension('coc')
+telescope.load_extension('cmake4vim')

@@ -125,25 +125,24 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" Mappings for CoCList
-" Show all diagnostics.
-nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
-let g:coc_global_extensions = ['coc-json', 'coc-clangd', 'coc-pairs', 'coc-lua', 'coc-cmake', 'coc-sh']
-
 ]])
+
+vim.g["coc_global_extensions"] = {
+  'coc-json',
+  'coc-clangd',
+  'coc-pairs',
+  'coc-lua',
+  'coc-cmake',
+  'coc-sh',
+  'coc-tsserver',
+  'coc-emmet',
+  '@yaegassy/coc-volar',
+  'coc-css',
+  'coc-markdownlint',
+  'coc-rust-analyzer',
+  'coc-python'
+}

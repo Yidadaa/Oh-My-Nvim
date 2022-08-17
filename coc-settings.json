@@ -7,5 +7,5 @@
     "lua",
     "cmake"
   ],
-  "git.addGBlameToVirtualText": true,
+  "git.addGBlameToVirtualText": true
 }
