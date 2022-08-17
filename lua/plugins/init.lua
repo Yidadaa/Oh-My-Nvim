@@ -135,6 +135,9 @@ return packer.startup(function(use)
     end
   }
 
+  -- 多行编辑
+  use 'mg979/vim-visual-multi'
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
