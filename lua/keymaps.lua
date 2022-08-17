@@ -8,7 +8,6 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 -- 使用空格作为 leader key
-keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -42,11 +41,9 @@ keymap("i", "jj", "<ESC>", opts)
 
 -- Telescoe 搜索快捷键
 keymap("n", "<leader><leader>", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>f", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 -- Terminal
-keymap("n", "<leader>t", ":ToggleTerm<CR>", opts)
+keymap("n", "<leader>t", ":ToggleTerm<CR>a", opts)
 function _G.set_terminal_keymaps()
   local opts = {buffer = 0}
   vim.keymap.set('t', '<esc>', [[<C-\><C-n>:ToggleTerm<CR>]], opts)
@@ -59,7 +56,3 @@ end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
-
--- 代码补全
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)

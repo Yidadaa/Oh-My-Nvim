@@ -1,0 +1,11 @@
+{
+  "cpp.formatting.provider": "clang-format",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "cpp",
+    "json",
+    "lua",
+    "cmake"
+  ],
+  "git.addGBlameToVirtualText": true,
+}

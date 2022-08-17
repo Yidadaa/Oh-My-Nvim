@@ -71,21 +71,21 @@ return packer.startup(function(use)
   use 'shaunsingh/nord.nvim'
   use 'folke/tokyonight.nvim'
   use 'rmehri01/onenord.nvim'
-  use "williamboman/mason.nvim"
+  -- use "williamboman/mason.nvim"
 
-  -- use 'neoclide/coc.nvim'
-  use({"neovim/nvim-lspconfig"})
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-
-  use "glepnir/lspsaga.nvim"
-
+  use {'neoclide/coc.nvim', branch = 'release'}
+  use 'fannheyward/telescope-coc.nvim'
   use {'ms-jpq/coq_nvim', branch = 'coq'}
   use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
   use {'ms-jpq/coq.thirdparty', branch = '3p'}
+
+  use "folke/which-key.nvim"
+  
+  use "lukas-reineke/indent-blankline.nvim"
+  use {
+    'nmac427/guess-indent.nvim',
+    config = function() require('guess-indent').setup {} end,
+  }
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
