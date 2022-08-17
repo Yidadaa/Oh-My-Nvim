@@ -59,6 +59,3 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- 快速移动
 keymap('n', 'f', "<cmd>HopWord<cr>", {})
-keymap('n', 'gl', "<cmd>HopLine<cr>", {})
-keymap('n', 'gw', "<cmd>HopChar1<cr>", {})
-keymap('n', 'gp', "<cmd>HopPattern<cr>", {})

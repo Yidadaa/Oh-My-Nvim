@@ -15,13 +15,6 @@ wk.register({
     f = {":Telescope buffers<CR>", "搜索 buffer"},
     o = { "<Plug>(coc-format-selected)", "格式化选中区域" },
   },
-  g = {
-    name = "Coc 操作",
-    d = { "<Plug>(coc-definition)", "跳转到函数定义"},
-    y = { "<Plug>(coc-type-definition)", "跳转到类型定义" },
-    i = { "<Plug>(coc-implementation)", "跳转到实现" },
-    r = { "<Plug>(coc-references)", "跳转到实现" },
-  },
   a = {
     name = "代码操作",
     c = { "<Plug>(coc-codeaction)", "显示所有代码操作" },
@@ -33,6 +26,22 @@ wk.register({
   }
 }, {
   prefix = "<leader>"
+})
+
+wk.register({
+  g = {
+    name = "Coc 操作",
+    d = { "<Plug>(coc-definition)", "跳转到函数定义"},
+    t = { "<Plug>(coc-type-definition)", "跳转到类型定义" },
+    i = { "<Plug>(coc-implementation)", "跳转到实现" },
+    r = { "<Plug>(coc-references)", "跳转到实现" },
+
+    l = { ":HopLine<cr>", "跳转到行" },
+    w = { ":HopChar1<cr>", "跳转到字符" },
+    p = { ":HopPattern<cr>", "跳转到模式" },
+  }
+}, {
+  prefix = ""
 })
 
 wk.register({
