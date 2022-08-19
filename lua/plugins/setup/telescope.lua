@@ -111,3 +111,30 @@ telescope.setup {
 
 telescope.load_extension('coc')
 telescope.load_extension('cmake4vim')
+
+-- 自定义 telescope picker
+local easypick = require("easypick")
+
+local base_branch = "main"
+
+easypick.setup({
+  pickers = {
+    {
+      name = "ls",
+      command = "ls",
+      previewer = easypick.previewers.default()
+    },
+    {
+			name = "changed_files",
+			command = "git diff --name-only $(git merge-base HEAD " .. base_branch .. " )",
+			previewer = easypick.previewers.branch_diff({base_branch = base_branch})
+		},
+		
+		-- list files that have conflicts with diffs in preview
+		{
+			name = "conflicts",
+			command = "git diff --name-only --diff-filter=U --relative",
+			previewer = easypick.previewers.file_diff()
+		},
+  }
+})

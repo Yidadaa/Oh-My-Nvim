@@ -2,8 +2,8 @@
 local options = {
   -- 2 空格作为 tab
   tabstop = 2,
-	expandtab = true,
-	shiftwidth = 2,
+  expandtab = true,
+  shiftwidth = 2,
 
   clipboard = "unnamedplus", -- 系统剪贴板
   fileencoding = "utf-8",
@@ -22,10 +22,10 @@ local options = {
   numberwidth = 4,
   signcolumn = "yes",
   wrap = false, -- 不换行
-  guifont = "JetBrainsMono Nerd Font"
 }
 
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+vim.opt.guifont = { "JetBrainsMono Nerd Font", "h12" }

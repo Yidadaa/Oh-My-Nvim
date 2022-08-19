@@ -1,12 +1,18 @@
-
 local opts = { noremap = true, silent = true }
-
 local term_opts = { silent = true }
-
+local utils = require('utils')
 
 -- 基础键位设置
 local keymap = vim.api.nvim_set_keymap
 
+-- 为 Meta / Alt 分配键位，从而使得 Windows 和 Mac 的体验一致
+function comp_key_map(mode, key, command)
+  local lead_keys = { 'M', 'A' }
+  for _, lead in pairs(lead_keys) do
+    local key = string.format('<%s-%s>', lead, key)
+    keymap(mode, key, command, opts)
+  end
+end
 
 -- 使用空格作为 leader key
 vim.g.mapleader = " "
@@ -15,7 +21,7 @@ vim.g.maplocalleader = " "
 -- 快速重载配置
 keymap("n", "<leader><CR>", ":luafile $MYVIMRC<CR>", opts)
 
--- 一些模式 
+-- 一些模式
 --   normal_mode = "n",
 --   insert_mode = "i",
 --   visual_mode = "v",
@@ -28,6 +34,9 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+
+-- Normal 模式下，Esc 清空高亮
+keymap('n', '<esc>', ':noh<cr>', opts)
 
 -- 使用 ctrl + arrow 调整窗口
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -44,10 +53,11 @@ keymap("i", "jj", "<ESC>", opts)
 keymap("n", "<leader><leader>", ":Telescope find_files<CR>", opts)
 
 -- Terminal
-keymap("n", "<leader>t", ":ToggleTerm<CR>a<BS>", opts)
+comp_key_map("n", "=", ":ToggleTerm<CR>a<BS>")
 function _G.set_terminal_keymaps()
-  local opts = {buffer = 0}
+  local opts = { buffer = 0 }
   vim.keymap.set('t', '<esc>', [[<C-\><C-n>:ToggleTerm<CR>]], opts)
+  comp_key_map("t", "=", [[<C-\><C-n>:ToggleTerm<CR>]])
   vim.keymap.set('t', 'kj', [[<C-\><C-n>]], opts)
   vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
   vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
@@ -61,14 +71,10 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 -- 快速移动
 keymap('n', 'f', "<cmd>HopWord<cr>", opts)
 
-function comp_key_map(mode, key, command)
-  local lead_keys = { 'M', 'A' }
-  for _, lead in pairs(lead_keys) do
-    local key = string.format('<%s-%s>', lead, key)
-    keymap(mode, key, command, opts)
-  end
-end
-
 -- 命令窗口
 comp_key_map('n', 'p', ":Telescope command_center<cr>")
 keymap('n', '<leader>p', "<cmd>Telescope command_center<cr>", opts)
+
+-- 搜索
+keymap('n', '/', ':SearchBoxMatchAll<cr>', opts) -- normal 模式下使用 search box 搜索
+keymap('v', '/', [[y:SearchBoxMatchAll <C-R>=escape(@",'/\')<cr><cr>]], opts) -- visual 模式下自动搜索选中的文本

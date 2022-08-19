@@ -3,7 +3,6 @@ local fn = vim.fn
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 
----@diagnostic disable-next-line: missing-parameter
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system {
     "git",
@@ -19,7 +18,7 @@ end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd [[
-  augroup packer_user_config
+  augroup packer_ser_config
     autocmd!
     autocmd BufWritePost init.lua source <afile> | PackerSync
   augroup end
@@ -55,9 +54,11 @@ return packer.startup(function(use)
 
   -- 补全
   use "christianchiarulli/nvim-cmp"
+  use "hrsh7th/cmp-cmdline" -- 补全底部命令行
+  use "hrsh7th/cmp-buffer"
   use {
-      'nvim-treesitter/nvim-treesitter',
-      run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    'nvim-treesitter/nvim-treesitter',
+    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
 
   use "nvim-treesitter/nvim-treesitter-context"
@@ -68,32 +69,46 @@ return packer.startup(function(use)
     "FeiyouG/command_center.nvim",
     requires = { "nvim-telescope/telescope.nvim" }
   }
+  use { 'axkirillov/easypick.nvim', requires = 'nvim-telescope/telescope.nvim' }
+  use {
+    'EthanJWright/vs-tasks.nvim',
+    requires = {
+      'nvim-lua/popup.nvim',
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim'
+    }
+  }
 
+  -- ui
   use "p00f/nvim-ts-rainbow"
   use 'hoob3rt/lualine.nvim'
   use "kyazdani42/nvim-web-devicons"
   use 'kdheepak/tabline.nvim'
+  use 'stevearc/dressing.nvim'
 
-  use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
+  -- 命令行
+  use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
+
+  -- 高亮使用行
   use 'edluffy/specs.nvim'
 
+  -- 主题
   use 'shaunsingh/nord.nvim'
   use 'folke/tokyonight.nvim'
   use 'rmehri01/onenord.nvim'
-  -- use "williamboman/mason.nvim"
 
-  use {'neoclide/coc.nvim', branch = 'release'}
+  use { 'neoclide/coc.nvim', branch = 'release' }
   use 'fannheyward/telescope-coc.nvim'
 
   use 'williamboman/mason.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
 
-  use {'ms-jpq/coq_nvim', branch = 'coq'}
-  use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
-  use {'ms-jpq/coq.thirdparty', branch = '3p'}
+  use { 'ms-jpq/coq_nvim', branch = 'coq' }
+  use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
+  use { 'ms-jpq/coq.thirdparty', branch = '3p' }
 
   use "folke/which-key.nvim"
-  
+
   use "lukas-reineke/indent-blankline.nvim"
   use {
     'nmac427/guess-indent.nvim',
@@ -104,25 +119,29 @@ return packer.startup(function(use)
     'phaazon/hop.nvim',
     branch = 'v2', -- optional but strongly recommended
     config = function()
-      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+      require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   }
 
-  use {"ellisonleao/glow.nvim"}
+  -- Markdown Preview
+  use { "ellisonleao/glow.nvim" }
 
+  -- Dashboard
   use {
-      'goolord/alpha-nvim',
-      config = function ()
-          require'alpha'.setup(require'alpha.themes.dashboard'.config)
-      end
+    'goolord/alpha-nvim',
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+    end
   }
 
+  -- CMake
   use 'ilyachur/cmake4vim'
   use 'SantinoKeupp/telescope-cmake4vim.nvim'
+  use 'SantinoKeupp/lualine-cmake4vim.nvim'
 
   -- Debug 相关
   use 'mfussenegger/nvim-dap'
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   use 'nvim-telescope/telescope-dap.nvim'
   use 'theHamsta/nvim-dap-virtual-text'
 
@@ -131,12 +150,20 @@ return packer.startup(function(use)
   use {
     'numToStr/Comment.nvim',
     config = function()
-        require('Comment').setup()
+      require('Comment').setup()
     end
   }
 
   -- 多行编辑
   use 'mg979/vim-visual-multi'
+
+  -- 搜索
+  use {
+    'VonHeikemen/searchbox.nvim',
+    requires = {
+      { 'MunifTanjim/nui.nvim' }
+    }
+  }
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
