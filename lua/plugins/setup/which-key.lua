@@ -65,6 +65,13 @@ wk.register({
     l = { ":HopLine<cr>", "跳转到行" },
     w = { ":HopChar1<cr>", "跳转到字符" },
     p = { ":HopPattern<cr>", "跳转到模式" },
+  },
+  t = {
+    name = "TabLine 操作",
+    n = { ":TablineTabNew<cr>", "新建 tab" },
+    h = { ":TablineBufferPrevious<cr>", "前一个 tab" },
+    l = { ":TablineBufferNext<cr>", "后一个 tab" },
+    t = { ":ToggleTerm direction=float<cr>a<bs>", "打开命令行" },
   }
 }, {
   prefix = ""

@@ -103,9 +103,9 @@ telescope.setup {
   },
   file_ignore_patterns = {
     "node_modules",
-    "**/cmake-build-*",
-    "**/legacy",
-    "third-party/skia"
+    "cmake-build-*",
+    "legacy",
+    "skia"
   }
 }
 
