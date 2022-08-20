@@ -20,7 +20,7 @@ end
 vim.cmd [[
   augroup packer_ser_config
     autocmd!
-    autocmd BufWritePost init.lua source <afile> | PackerSync
+    autocmd BufWritePost install.lua source <afile> | PackerSync
   augroup end
 ]]
 
@@ -84,7 +84,12 @@ return packer.startup(function(use)
   use 'hoob3rt/lualine.nvim'
   use "kyazdani42/nvim-web-devicons"
   use 'kdheepak/tabline.nvim'
-  use 'stevearc/dressing.nvim'
+  use 'stevearc/dressing.nvim' -- 增强 vim.select 能力
+  use "lukas-reineke/indent-blankline.nvim"
+  use {
+    'nmac427/guess-indent.nvim',
+    config = function() require('guess-indent').setup {} end,
+  }
 
   -- 命令行
   use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
@@ -97,23 +102,19 @@ return packer.startup(function(use)
   use 'folke/tokyonight.nvim'
   use 'rmehri01/onenord.nvim'
 
+  -- 补全
   use { 'neoclide/coc.nvim', branch = 'release' }
   use 'fannheyward/telescope-coc.nvim'
-
-  use 'williamboman/mason.nvim'
-  use 'jose-elias-alvarez/null-ls.nvim'
-
   use { 'ms-jpq/coq_nvim', branch = 'coq' }
   use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
   use { 'ms-jpq/coq.thirdparty', branch = '3p' }
 
+  -- 格式化
+  use 'williamboman/mason.nvim'
+  use 'jose-elias-alvarez/null-ls.nvim'
+
   use "folke/which-key.nvim"
 
-  use "lukas-reineke/indent-blankline.nvim"
-  use {
-    'nmac427/guess-indent.nvim',
-    config = function() require('guess-indent').setup {} end,
-  }
 
   use {
     'phaazon/hop.nvim',
@@ -135,9 +136,10 @@ return packer.startup(function(use)
   }
 
   -- CMake
-  use 'ilyachur/cmake4vim'
-  use 'SantinoKeupp/telescope-cmake4vim.nvim'
-  use 'SantinoKeupp/lualine-cmake4vim.nvim'
+  -- use 'ilyachur/cmake4vim'
+  -- use 'SantinoKeupp/telescope-cmake4vim.nvim'
+  -- use 'SantinoKeupp/lualine-cmake4vim.nvim'
+  use 'Shatur/neovim-cmake'
 
   -- Debug 相关
   use 'mfussenegger/nvim-dap'
@@ -164,6 +166,9 @@ return packer.startup(function(use)
       { 'MunifTanjim/nui.nvim' }
     }
   }
+
+  -- git
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()

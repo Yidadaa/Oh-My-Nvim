@@ -9,7 +9,7 @@ telescope.setup {
   defaults = {
     sorting_strategy = "ascending",
     layout_config = {
-        prompt_position = 'top',
+      prompt_position = 'top',
     },
 
     prompt_prefix = "> ",
@@ -97,8 +97,8 @@ telescope.setup {
     -- }
     -- please take a look at the readme of the extension you want to configure
     coc = {
-        theme = 'dropdown',
-        prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
+      theme = 'dropdown',
+      prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
     },
   },
   file_ignore_patterns = {
@@ -110,7 +110,7 @@ telescope.setup {
 }
 
 telescope.load_extension('coc')
-telescope.load_extension('cmake4vim')
+-- telescope.load_extension('cmake4vim')
 
 -- 自定义 telescope picker
 local easypick = require("easypick")
@@ -125,16 +125,16 @@ easypick.setup({
       previewer = easypick.previewers.default()
     },
     {
-			name = "changed_files",
-			command = "git diff --name-only $(git merge-base HEAD " .. base_branch .. " )",
-			previewer = easypick.previewers.branch_diff({base_branch = base_branch})
-		},
-		
-		-- list files that have conflicts with diffs in preview
-		{
-			name = "conflicts",
-			command = "git diff --name-only --diff-filter=U --relative",
-			previewer = easypick.previewers.file_diff()
-		},
+      name = "changed_files",
+      command = "git diff --name-only $(git merge-base HEAD " .. base_branch .. " )",
+      previewer = easypick.previewers.branch_diff({ base_branch = base_branch })
+    },
+
+    -- list files that have conflicts with diffs in preview
+    {
+      name = "conflicts",
+      command = "git diff --name-only --diff-filter=U --relative",
+      previewer = easypick.previewers.file_diff()
+    },
   }
 })

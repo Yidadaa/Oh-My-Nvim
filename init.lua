@@ -1,6 +1,6 @@
 local modules = {
   "keymaps",
-  "plugins.init",
+  "plugins.install",
   "plugins.setup.all",
   "options",
 }
@@ -10,4 +10,3 @@ for k, v in pairs(modules) do
   package.loaded[v] = nil
   require(v)
 end
-
