@@ -95,7 +95,7 @@ return packer.startup(function(use)
   use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
 
   -- 高亮使用行
-  use 'edluffy/specs.nvim'
+  -- use 'edluffy/specs.nvim'
 
   -- 主题
   use 'shaunsingh/nord.nvim'
