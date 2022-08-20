@@ -6,7 +6,7 @@ local modules = {
 }
 
 -- 自动重载
-for k, v in pairs(modules) do
+for _, v in pairs(modules) do
   package.loaded[v] = nil
   require(v)
 end

@@ -169,6 +169,9 @@ return packer.startup(function(use)
 
   -- git
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
+    require('git-conflict').setup()
+  end }
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()

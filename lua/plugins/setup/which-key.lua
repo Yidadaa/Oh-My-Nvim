@@ -49,6 +49,16 @@ wk.register({
     b = { ":ToggleTerm direction=tab<cr>a<bs>", "新 tab 中打开命令行" },
     f = { ":ToggleTerm direction=float<cr>a<bs>", "浮动窗口中打开命令行" },
     k = { function() require("telescope").extensions.vstask.tasks() end, "执行任务" };
+  },
+  g = {
+    name = "Git 操作",
+    o = { ":GitConflictChooseOurs<cr>", "Git 使用我们的更改" },
+    t = { ":GitConflictChooseTheirs<cr>", "Git 使用他们的更改" },
+    b = { ":GitConflictChooseBoth<cr>", "Git 两个全都要" },
+    n = { ":GitConflictChooseNone<cr>", "Git 全都不要" },
+    j = { ":GitConflictNextConflict<cr>", "Git 下一个冲突" },
+    k = { ":GitConflictPrevConflict<cr>", "Git 上一个冲突" },
+    l = { ":GitConflictListQf<cr>", "Git 所有冲突 quickfix" },
   }
 }, {
   prefix = "<leader>"
