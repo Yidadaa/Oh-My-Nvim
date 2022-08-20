@@ -56,7 +56,7 @@ keymap("n", "<leader><leader>", ":Telescope find_files<CR>", opts)
 comp_key_map("n", "=", ":ToggleTerm<CR>a<BS>")
 function _G.set_terminal_keymaps()
   local opts = { buffer = 0 }
-  vim.keymap.set('t', '<esc>', [[<C-\><C-n>:ToggleTerm<CR>]], opts)
+  vim.keymap.set('t', '<esc><esc>', [[<C-\><C-n>:ToggleTerm<CR>]], opts)
   comp_key_map("t", "=", [[<C-\><C-n>:ToggleTerm<CR>]])
   vim.keymap.set('t', 'kj', [[<C-\><C-n>]], opts)
   vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
