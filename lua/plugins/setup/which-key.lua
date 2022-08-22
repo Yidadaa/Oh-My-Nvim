@@ -1,9 +1,3 @@
-require("which-key").setup {
-  -- your configuration comes here
-  -- or leave it empty to use the default settings
-  -- refer to the configuration section below
-}
-
 local wk = require("which-key")
 
 wk.register({
@@ -62,7 +56,7 @@ wk.register({
   }
 }, {
   prefix = "<leader>"
-})
+});
 
 wk.register({
   g = {
@@ -79,13 +73,15 @@ wk.register({
   t = {
     name = "TabLine 操作",
     n = { ":TablineTabNew<cr>", "新建 tab" },
+    k = { ":TablineBufferPrevious<cr>", "前一个 tab" },
+    j = { ":TablineBufferNext<cr>", "后一个 tab" },
     h = { ":TablineBufferPrevious<cr>", "前一个 tab" },
     l = { ":TablineBufferNext<cr>", "后一个 tab" },
     t = { ":ToggleTerm direction=float<cr>a<bs>", "打开命令行" },
   }
 }, {
   prefix = ""
-})
+});
 
 wk.register({
   f = {
@@ -95,4 +91,4 @@ wk.register({
 }, {
   prefix = "<leader>",
   mode = "x"
-})
+});

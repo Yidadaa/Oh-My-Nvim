@@ -38,6 +38,9 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Normal 模式下，Esc 清空高亮
 keymap('n', '<esc>', ':noh<cr>', opts)
 
+-- bd 关闭 buffer
+keymap('n', 'bd', ':bd<cr>', opts)
+
 -- 使用 ctrl + arrow 调整窗口
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
@@ -69,7 +72,7 @@ end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- 快速移动
-keymap('n', 'f', "<cmd>HopWord<cr>", opts)
+keymap('n', 'f', "<cmd>HopChar1<cr>", opts)
 
 -- 命令窗口
 comp_key_map('n', 'p', ":Telescope command_center<cr>")
