@@ -41,11 +41,11 @@ keymap('n', '<esc>', ':noh<cr>', opts)
 -- bd 关闭 buffer
 keymap('n', 'bd', ':bd<cr>:blast<cr>', opts)
 
--- 使用 ctrl + arrow 调整窗口
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+-- 使用 shift + arrow 调整窗口
+keymap("n", "<S-Up>", ":resize -2<CR>", opts)
+keymap("n", "<S-Down>", ":resize +2<CR>", opts)
+keymap("n", "<S-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 
 -- 使用 jk/kj/jj 退出 insert 模式
 keymap("i", "jk", "<ESC>", opts)

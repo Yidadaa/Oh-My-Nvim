@@ -8,7 +8,7 @@ require('cmake').setup({
   default_parameters = { run_dir = '', args = {}, build_type = 'Debug' }, -- The default values in `parameters_file`.
   build_dir = tostring(Path:new('{cwd}', 'cmake-build-{build_type}-clang')), -- Build directory. The expressions `{cwd}`, `{os}` and `{build_type}` will be expanded with the corresponding text values. Could be a function that return the path to the build directory.
   default_projects_path = tostring(Path:new(vim.loop.os_homedir(), 'Projects')), -- Default folder for creating project.
-  configure_args = { '-D', 'CMAKE_EXPORT_COMPILE_COMMANDS=1' }, -- Default arguments that will be always passed at cmake configure step. By default tells cmake to generate `compile_commands.json`.
+  configure_args = { '-D', 'CMAKE_EXPORT_COMPILE_COMMANDS=1', '-G', 'Ninja' }, -- Default arguments that will be always passed at cmake configure step. By default tells cmake to generate `compile_commands.json`.
   build_args = {}, -- Default arguments that will be always passed at cmake build step.
   on_build_output = nil, -- Callback that will be called each time data is received by the current process. Accepts the received data as an argument.
   quickfix = {

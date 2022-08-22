@@ -57,8 +57,8 @@ wk.register({
   },
   d = {
     name = "调试",
-    b = { ":CMake build_and_debug", "构建并调试当前 target" },
-    s = { ":CMake select_target", "切换 CMake target" }
+    b = { ":CMake build_and_debug<cr>", "构建并调试当前 target" },
+    s = { ":CMake select_target<cr>", "切换 CMake target" }
   },
   b = {
     name = "断点",
