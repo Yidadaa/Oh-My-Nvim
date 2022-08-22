@@ -35,8 +35,8 @@ wk.register({
     r = { ":Telescope coc references<cr>", "查找所有引用" },
   },
   t = {
-    name = "命令行窗口",
-    t = { ":ToggleTerm direction=float<cr>a<bs>", "打开命令行" },
+    name = "命令行和文件树",
+    t = { ":NvimTreeToggle<cr>", "切换文件树" },
     s = { ":ToggleTermSendVisualSelection<cr>a<bs>", "在命令行中执行选中的文本" },
     v = { ":ToggleTerm direction=vertical<cr>a<bs>", "垂直分割打开命令行" },
     h = { ":ToggleTerm direction=horizontal<cr>a<bs>", "水平分割打开命令行" },
@@ -46,6 +46,7 @@ wk.register({
   },
   g = {
     name = "Git 操作",
+    g = { ":TermExec cmd=gitui<cr>", "调用 gitui" },
     o = { ":GitConflictChooseOurs<cr>", "Git 使用我们的更改" },
     t = { ":GitConflictChooseTheirs<cr>", "Git 使用他们的更改" },
     b = { ":GitConflictChooseBoth<cr>", "Git 两个全都要" },
@@ -55,7 +56,7 @@ wk.register({
     l = { ":GitConflictListQf<cr>", "Git 所有冲突 quickfix" },
   },
   d = {
-    name = "调试相关",
+    name = "调试",
     b = { ":CMake build_and_debug", "构建并调试当前 target" },
     s = { ":CMake select_target", "切换 CMake target" }
   },

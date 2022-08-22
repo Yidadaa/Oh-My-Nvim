@@ -39,7 +39,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap('n', '<esc>', ':noh<cr>', opts)
 
 -- bd 关闭 buffer
-keymap('n', 'bd', ':bd<cr>', opts)
+keymap('n', 'bd', ':bd<cr>:blast<cr>', opts)
 
 -- 使用 ctrl + arrow 调整窗口
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
