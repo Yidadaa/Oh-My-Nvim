@@ -53,6 +53,21 @@ wk.register({
     j = { ":GitConflictNextConflict<cr>", "Git 下一个冲突" },
     k = { ":GitConflictPrevConflict<cr>", "Git 上一个冲突" },
     l = { ":GitConflictListQf<cr>", "Git 所有冲突 quickfix" },
+  },
+  d = {
+    name = "调试相关",
+    b = { ":CMake build_and_debug", "构建并调试当前 target" },
+    s = { ":CMake select_target", "切换 CMake target" }
+  },
+  b = {
+    name = "断点",
+    b = { ":DapToggleBreakpoint<cr>", "切换断点" },
+    r = { ":DapToggleRepl<cr>", "切换调试窗口" },
+    i = { ":DapStepInto<cr>", "调试跳入" },
+    o = { ":DapStepOut<cr>", "调试跳出" },
+    n = { ":DapStepOver<cr>", "调试步进" },
+    d = { ":DapTerminate<cr>", "调试终止" },
+    t = { ":DapVirtualTextToggle<cr>", "调试文本切换显示" },
   }
 }, {
   prefix = "<leader>"
@@ -73,8 +88,8 @@ wk.register({
   t = {
     name = "TabLine 操作",
     n = { ":TablineTabNew<cr>", "新建 tab" },
-    k = { ":TablineBufferPrevious<cr>", "前一个 tab" },
-    j = { ":TablineBufferNext<cr>", "后一个 tab" },
+    j = { ":TablineBufferPrevious<cr>", "前一个 tab" },
+    k = { ":TablineBufferNext<cr>", "后一个 tab" },
     h = { ":TablineBufferPrevious<cr>", "前一个 tab" },
     l = { ":TablineBufferNext<cr>", "后一个 tab" },
     t = { ":ToggleTerm direction=float<cr>a<bs>", "打开命令行" },

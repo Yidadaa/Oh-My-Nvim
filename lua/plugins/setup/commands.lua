@@ -20,6 +20,8 @@ local commands = {
   { "CMake: configure", ":CMake<cr>" },
   { "CMake: build target", ":CMake build<cr>" },
   { "CMake: run target", ":CMake run<cr>" },
+  { "CMake: debug target", ":CMake debug<cr>" },
+  { "CMake: build and debug target", ":CMake build_and_debug<cr>" },
   { "CMake: select target", ":CMake select_target<cr>" },
   { "CMake: select cmake kit", ":CMake select_kit<cr>" },
   { "CMake: select build type", ":CMake select_build_type<cr>" },
