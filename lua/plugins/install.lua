@@ -143,10 +143,7 @@ return packer.startup(function(use)
     end
   }
 
-  -- CMake
-  -- use 'ilyachur/cmake4vim'
-  -- use 'SantinoKeupp/telescope-cmake4vim.nvim'
-  -- use 'SantinoKeupp/lualine-cmake4vim.nvim'
+  -- CMak
   use 'Shatur/neovim-cmake'
 
   -- Debug 相关
@@ -163,6 +160,15 @@ return packer.startup(function(use)
       require('Comment').setup()
     end
   }
+
+  use {
+    "danymat/neogen",
+    config = function()
+      require('neogen').setup {}
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
+  }
+
 
   -- 多行编辑
   use 'mg979/vim-visual-multi'

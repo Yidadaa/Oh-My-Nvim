@@ -79,3 +79,6 @@ keymap('n', '<leader>p', "<cmd>Telescope command_center<cr>", opts)
 -- 搜索
 keymap('n', '/', ':SearchBoxMatchAll<cr>', opts) -- normal 模式下使用 search box 搜索
 keymap('v', '/', [[y:SearchBoxMatchAll <C-R>=escape(@",'/\')<cr><cr>]], opts) -- visual 模式下自动搜索选中的文本
+
+-- 注释
+keymap('i', '/*', '<esc>j:Neogen<cr>', opts) -- insert 模式下自动生成 doxygen comment string
