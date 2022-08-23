@@ -7,5 +7,6 @@
     "lua",
     "cmake"
   ],
-  "git.addGBlameToVirtualText": true
+  "git.addGBlameToVirtualText": true,
+  "coc.preferences.extensionUpdateCheck": "daily"
 }

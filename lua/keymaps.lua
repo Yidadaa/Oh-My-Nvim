@@ -42,10 +42,10 @@ keymap('n', '<esc>', ':noh<cr>', opts)
 keymap('n', '<leader>bd', ':bd<cr>:blast<cr>', opts)
 
 -- 使用 shift + arrow 调整窗口
-keymap("n", "<S-Up>", ":resize -2<CR>", opts)
-keymap("n", "<S-Down>", ":resize +2<CR>", opts)
-keymap("n", "<S-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-S-Up>", ":resize -2<CR>", opts)
+keymap("n", "<C-S-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-S-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-S-Right>", ":vertical resize +2<CR>", opts)
 
 -- 使用 kj 退出 insert 模式
 keymap("i", "kj", "<ESC>", opts)

@@ -54,6 +54,9 @@ wk.register({
     j = { ":GitConflictNextConflict<cr>", "Git 下一个冲突" },
     k = { ":GitConflictPrevConflict<cr>", "Git 上一个冲突" },
     l = { ":GitConflictListQf<cr>", "Git 所有冲突 quickfix" },
+    s = { ":Telescope git_status<cr>", "Git 查看改动文件状态" },
+    c = { ":Telescope git_commits<cr>", "Git 查看 commit" },
+    h = { ":DiffviewFileHistory<cr>", "Git 查看当前文件历史记录" }
   },
   d = {
     name = "调试",
@@ -67,7 +70,7 @@ wk.register({
     i = { ":DapStepInto<cr>", "调试跳入" },
     o = { ":DapStepOut<cr>", "调试跳出" },
     n = { ":DapStepOver<cr>", "调试步进" },
-    d = { ":DapTerminate<cr>", "调试终止" },
+    x = { ":DapTerminate<cr>", "调试终止" },
     t = { ":DapVirtualTextToggle<cr>", "调试文本切换显示" },
   }
 }, {

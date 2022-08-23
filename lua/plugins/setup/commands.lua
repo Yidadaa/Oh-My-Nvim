@@ -17,6 +17,7 @@ local commands = {
   { "Git: 查看 git 文件状态（git status）", ":Telescope git_status<cr>" },
   { "Git: 查看文件变更 split view", ":DiffviewOpen<cr>" },
   { "Git: 刷新文件变更 split view", ":DiffviewRefresh<cr>" },
+  { "Git: 查看当前文件历史记录", ":DiffviewFileHistory<cr>" },
   { "CMake: configure", ":CMake<cr>" },
   { "CMake: build target", ":CMake build<cr>" },
   { "CMake: run target", ":CMake run<cr>" },
