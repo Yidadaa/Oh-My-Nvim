@@ -38,8 +38,8 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Normal 模式下，Esc 清空高亮
 keymap('n', '<esc>', ':noh<cr>', opts)
 
--- bd 关闭 buffer
-keymap('n', 'bd', ':bd<cr>:blast<cr>', opts)
+-- <leader>bd 关闭 buffer
+keymap('n', '<leader>bd', ':bd<cr>:blast<cr>', opts)
 
 -- 使用 shift + arrow 调整窗口
 keymap("n", "<S-Up>", ":resize -2<CR>", opts)
@@ -47,10 +47,8 @@ keymap("n", "<S-Down>", ":resize +2<CR>", opts)
 keymap("n", "<S-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 
--- 使用 jk/kj/jj 退出 insert 模式
-keymap("i", "jk", "<ESC>", opts)
+-- 使用 kj 退出 insert 模式
 keymap("i", "kj", "<ESC>", opts)
-keymap("i", "jj", "<ESC>", opts)
 
 -- Telescoe 搜索快捷键
 keymap("n", "<leader><leader>", ":Telescope find_files<CR>", opts)
