@@ -58,10 +58,14 @@ wk.register({
     c = { ":Telescope git_commits<cr>", "Git 查看 commit" },
     h = { ":DiffviewFileHistory<cr>", "Git 查看当前文件历史记录" }
   },
-  d = {
-    name = "调试",
-    b = { ":CMake build_and_debug<cr>", "构建并调试当前 target" },
-    s = { ":CMake select_target<cr>", "切换 CMake target" }
+  c = {
+    name = "CMake 操作",
+    c = { ":CMake<cr>", "CMake 配置" },
+    b = { ":CMake build<cr>", "构建当前 target" },
+    d = { ":CMake build_and_debug<cr>", "构建并调试当前 target" },
+    r = { ":CMake build_and_run<cr>", "构建并运行当前 target" },
+    s = { ":CMake select_target<cr>", "切换 CMake target" },
+    x = { ":CMake clear_cache<cr>", "清楚 CMake 缓存" },
   },
   b = {
     name = "断点",
