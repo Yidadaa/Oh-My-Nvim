@@ -6,7 +6,14 @@ local modules = {
 }
 
 -- 自动重载
-for _, v in pairs(modules) do
-  package.loaded[v] = nil
-  require(v)
+function init()
+  for _, v in pairs(modules) do
+    local st = vim.loop.hrtime()
+    package.loaded[v] = nil
+    require(v)
+    st = vim.loop.hrtime() - st
+    -- print(string.format("Loading %s at %s", v, st))
+  end
 end
+
+init()

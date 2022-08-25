@@ -64,7 +64,7 @@ return packer.startup(function(use)
   use "nvim-treesitter/nvim-treesitter-context"
 
   use "kyazdani42/nvim-tree.lua"
-  use "nvim-telescope/telescope.nvim"
+  use { "nvim-telescope/telescope.nvim" }
   use {
     "FeiyouG/command_center.nvim",
     requires = { "nvim-telescope/telescope.nvim" }
