@@ -1,26 +1,25 @@
 local configs = {
-  'plugins.setup.nvim-tree'
-  , 'plugins.setup.treesitter'
-  -- , 'plugins.setup.telescope'
-  , 'plugins.setup.fterm'
-  , 'plugins.setup.tabline'
-  , 'plugins.setup.theme'
-  , 'plugins.setup.mason'
-  , 'plugins.setup.lsp'
-  , 'plugins.setup.coc'
-  , 'plugins.setup.cmp'
-  , 'plugins.setup.which-key'
-  , 'plugins.setup.commands'
-  , 'plugins.setup.cmake'
-  , 'plugins.setup.debug'
-  , 'plugins.setup.git'
+  'plugins.setup.nvim-tree',
+  'plugins.setup.treesitter',
+  'plugins.setup.telescope',
+  'plugins.setup.fterm',
+  'plugins.setup.tabline',
+  'plugins.setup.theme',
+  'plugins.setup.mason',
+  'plugins.setup.lsp',
+  'plugins.setup.coc',
+  'plugins.setup.cmp',
+  'plugins.setup.which-key',
+  'plugins.setup.commands',
+  'plugins.setup.cmake',
+  'plugins.setup.debug',
+  'plugins.setup.git'
 }
 
 local total = 0
 function load()
   for _, v in pairs(configs) do
     local st = vim.loop.hrtime()
-    package.loaded[v] = nil
     require(v)
     st = vim.loop.hrtime() - st
     total = total + st
