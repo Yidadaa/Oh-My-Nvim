@@ -1,4 +1,25 @@
-require("dapui").setup()
+require("dapui").setup {
+  layouts = {
+    {
+      elements = {
+        { id = "scopes", size = 0.6 },
+        { id = "breakpoints", size = 0.1 },
+        { id = "stacks", size = 0.3 },
+      },
+      size = 40,
+      position = 'right'
+    },
+    {
+      elements = {
+        "repl",
+        "console",
+      },
+      size = 0.25,
+      position = 'bottom'
+    }
+  }
+}
+
 require('telescope').load_extension('dap')
 require("nvim-dap-virtual-text").setup()
 
@@ -6,24 +27,11 @@ local dap = require('dap')
 
 dap.adapters.lldb = {
   type = 'executable',
-  command = '/usr/bin/lldb-vscode-15', -- adjust as needed, must be absolute path
+  command = '/usr/bin/lldb-vscode-14', -- adjust as needed, must be absolute path
   name = 'lldb'
 }
 
-dap.configurations.cpp = {
-  {
-    name = 'Launch',
-    type = 'lldb',
-    request = 'launch',
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
-    cwd = '${workspaceFolder}',
-    stopOnEntry = false,
-    args = {},
-  },
-}
-
+dap.configurations.cpp = {}
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
 

@@ -136,6 +136,7 @@ vim.g["coc_global_extensions"] = {
   'coc-clangd',
   'coc-pairs',
   'coc-git',
+  'coc-eslint',
   --'coc-lua',
   'coc-sumneko-lua',
   'coc-cmake',
@@ -146,5 +147,5 @@ vim.g["coc_global_extensions"] = {
   'coc-css',
   'coc-markdownlint',
   'coc-rust-analyzer',
-  'coc-python'
+  'coc-pyright'
 }

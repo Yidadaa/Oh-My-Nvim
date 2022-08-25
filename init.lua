@@ -1,8 +1,8 @@
 local modules = {
-  "keymaps",
   "plugins.install",
   "plugins.setup.all",
   "options",
+  "keymaps",
 }
 
 -- 自动重载

@@ -35,8 +35,8 @@ wk.register({
     r = { ":Telescope coc references<cr>", "查找所有引用" },
   },
   t = {
-    name = "命令行窗口",
-    t = { ":ToggleTerm direction=float<cr>a<bs>", "打开命令行" },
+    name = "命令行和文件树",
+    t = { ":NvimTreeToggle<cr>", "切换文件树" },
     s = { ":ToggleTermSendVisualSelection<cr>a<bs>", "在命令行中执行选中的文本" },
     v = { ":ToggleTerm direction=vertical<cr>a<bs>", "垂直分割打开命令行" },
     h = { ":ToggleTerm direction=horizontal<cr>a<bs>", "水平分割打开命令行" },
@@ -46,6 +46,7 @@ wk.register({
   },
   g = {
     name = "Git 操作",
+    g = { ":TermExec cmd=gitui<cr>", "调用 gitui" },
     o = { ":GitConflictChooseOurs<cr>", "Git 使用我们的更改" },
     t = { ":GitConflictChooseTheirs<cr>", "Git 使用他们的更改" },
     b = { ":GitConflictChooseBoth<cr>", "Git 两个全都要" },
@@ -53,6 +54,28 @@ wk.register({
     j = { ":GitConflictNextConflict<cr>", "Git 下一个冲突" },
     k = { ":GitConflictPrevConflict<cr>", "Git 上一个冲突" },
     l = { ":GitConflictListQf<cr>", "Git 所有冲突 quickfix" },
+    s = { ":Telescope git_status<cr>", "Git 查看改动文件状态" },
+    c = { ":Telescope git_commits<cr>", "Git 查看 commit" },
+    h = { ":DiffviewFileHistory<cr>", "Git 查看当前文件历史记录" }
+  },
+  c = {
+    name = "CMake 操作",
+    c = { ":CMake<cr>", "CMake 配置" },
+    b = { ":CMake build<cr>", "构建当前 target" },
+    d = { ":CMake build_and_debug<cr>", "构建并调试当前 target" },
+    r = { ":CMake build_and_run<cr>", "构建并运行当前 target" },
+    s = { ":CMake select_target<cr>", "切换 CMake target" },
+    x = { ":CMake clear_cache<cr>", "清楚 CMake 缓存" },
+  },
+  b = {
+    name = "断点",
+    b = { ":DapToggleBreakpoint<cr>", "切换断点" },
+    r = { ":DapToggleRepl<cr>", "切换调试窗口" },
+    i = { ":DapStepInto<cr>", "调试跳入" },
+    o = { ":DapStepOut<cr>", "调试跳出" },
+    n = { ":DapStepOver<cr>", "调试步进" },
+    x = { ":DapTerminate<cr>", "调试终止" },
+    t = { ":DapVirtualTextToggle<cr>", "调试文本切换显示" },
   }
 }, {
   prefix = "<leader>"
@@ -73,8 +96,8 @@ wk.register({
   t = {
     name = "TabLine 操作",
     n = { ":TablineTabNew<cr>", "新建 tab" },
-    k = { ":TablineBufferPrevious<cr>", "前一个 tab" },
-    j = { ":TablineBufferNext<cr>", "后一个 tab" },
+    j = { ":TablineBufferPrevious<cr>", "前一个 tab" },
+    k = { ":TablineBufferNext<cr>", "后一个 tab" },
     h = { ":TablineBufferPrevious<cr>", "前一个 tab" },
     l = { ":TablineBufferNext<cr>", "后一个 tab" },
     t = { ":ToggleTerm direction=float<cr>a<bs>", "打开命令行" },

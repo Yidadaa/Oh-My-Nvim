@@ -38,19 +38,17 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Normal 模式下，Esc 清空高亮
 keymap('n', '<esc>', ':noh<cr>', opts)
 
--- bd 关闭 buffer
-keymap('n', 'bd', ':bd<cr>', opts)
+-- <leader>bd 关闭 buffer
+keymap('n', '<leader>bd', ':bd<cr>:blast<cr>', opts)
 
--- 使用 ctrl + arrow 调整窗口
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+-- 使用 shift + arrow 调整窗口
+keymap("n", "<C-S-Up>", ":resize -2<CR>", opts)
+keymap("n", "<C-S-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-S-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-S-Right>", ":vertical resize +2<CR>", opts)
 
--- 使用 jk/kj/jj 退出 insert 模式
-keymap("i", "jk", "<ESC>", opts)
+-- 使用 kj 退出 insert 模式
 keymap("i", "kj", "<ESC>", opts)
-keymap("i", "jj", "<ESC>", opts)
 
 -- Telescoe 搜索快捷键
 keymap("n", "<leader><leader>", ":Telescope find_files<CR>", opts)
@@ -81,3 +79,6 @@ keymap('n', '<leader>p', "<cmd>Telescope command_center<cr>", opts)
 -- 搜索
 keymap('n', '/', ':SearchBoxMatchAll<cr>', opts) -- normal 模式下使用 search box 搜索
 keymap('v', '/', [[y:SearchBoxMatchAll <C-R>=escape(@",'/\')<cr><cr>]], opts) -- visual 模式下自动搜索选中的文本
+
+-- 注释
+keymap('i', '/*', '<esc>j:Neogen<cr>', opts) -- insert 模式下自动生成 doxygen comment string

@@ -5,7 +5,12 @@
     "cpp",
     "json",
     "lua",
-    "cmake"
+    "cmake",
+    "vue",
+    "ts",
+    "js"
   ],
-  "git.addGBlameToVirtualText": true
+  "git.addGBlameToVirtualText": true,
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "eslint.format.enable": true
 }
