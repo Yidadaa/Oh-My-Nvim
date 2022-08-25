@@ -70,10 +70,11 @@ wk.register({
   b = {
     name = "断点",
     b = { ":DapToggleBreakpoint<cr>", "切换断点" },
-    r = { ":DapToggleRepl<cr>", "切换调试窗口" },
-    i = { ":DapStepInto<cr>", "调试跳入" },
-    o = { ":DapStepOut<cr>", "调试跳出" },
-    n = { ":DapStepOver<cr>", "调试步进" },
+    r = { ":DapToggleRepl<cr>", "切换 repl 窗口" },
+    c = { ":DapContinue<cr>", "执行到下一个断点(continue)" },
+    i = { ":DapStepInto<cr>", "调试跳入(step in)" },
+    o = { ":DapStepOut<cr>", "调试跳出(step out)" },
+    n = { ":DapStepOver<cr>", "调试步进(step over)" },
     x = { ":DapTerminate<cr>", "调试终止" },
     t = { ":DapVirtualTextToggle<cr>", "调试文本切换显示" },
   }
