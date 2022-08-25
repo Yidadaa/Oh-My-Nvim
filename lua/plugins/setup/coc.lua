@@ -35,8 +35,8 @@ endif
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" nmap <silent> <leader>lj <Plug>(coc-diagnostic-prev)
+" nmap <silent> <leader>lk <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 " nmap <silent> gd <Plug>(coc-definition)
@@ -84,7 +84,7 @@ augroup end
 " nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Run the Code Lens action on the current line.
-nmap <leader>cl  <Plug>(coc-codelens-action)
+" nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -126,9 +126,9 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Do default action for next item.
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+" nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+" nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 ]])
 
 vim.g["coc_global_extensions"] = {
@@ -137,7 +137,6 @@ vim.g["coc_global_extensions"] = {
   'coc-pairs',
   'coc-git',
   'coc-eslint',
-  --'coc-lua',
   'coc-sumneko-lua',
   'coc-cmake',
   'coc-sh',

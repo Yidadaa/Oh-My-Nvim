@@ -17,7 +17,8 @@ wk.register({
   a = {
     name = "代码操作",
     c = { "<Plug>(coc-codeaction)", "显示所有代码操作" },
-    f = { "<Plug>(coc-fix-current)", "AutoFix 当前行" }
+    f = { "<Plug>(coc-fix-current)", "AutoFix 当前行" },
+    l = { "<Plug>(coc-codelens-action)", "显示 Code Lens 操作" },
   },
   r = {
     name = "重命名操作",
@@ -26,11 +27,11 @@ wk.register({
   },
   l = {
     name = "Coc List 操作",
-    d = { ":CocList diagnostics<cr>", "跳转诊断信息" },
+    d = { ":Telescope coc diagnostics<cr>", "跳转诊断信息" },
     e = { ":CocList extensions<cr>", "跳转 coc extensions" },
-    c = { ":CocList commands<cr>", "跳转 coc commands" },
+    c = { ":Telescope coc commands<cr>", "跳转 coc commands" },
     o = { ":CocList outline<cr>", "跳转 coc outline" },
-    s = { ":CocList -I symbols<cr>", "跳转 coc symbols" },
+    s = { ":Telescope coc document_symbols<cr>", "跳转当前文档的 symbols" },
     p = { ":CocListResume<cr>", "恢复上一次 coc list" },
     r = { ":Telescope coc references<cr>", "查找所有引用" },
   },
@@ -89,6 +90,8 @@ wk.register({
     y = { "<Plug>(coc-type-definition)", "跳转到类型定义" },
     i = { "<Plug>(coc-implementation)", "跳转到实现" },
     r = { "<Plug>(coc-references)", "跳转到实现" },
+    j = { "<Plug>(coc-diagnostics-next)", "跳转到下一个问题" },
+    k = { "<Plug>(coc-diagnostics-prev)", "跳转到上一个问题" },
 
     l = { ":HopLine<cr>", "跳转到行" },
     w = { ":HopChar1<cr>", "跳转到字符" },

@@ -35,6 +35,10 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+-- 把 shift + u/d 也映射为 ctrl + u/d，防止手滑
+keymap("n", "<S-u>", "<C-u>", opts)
+keymap("n", "<S-d>", "<C-d>", opts)
+
 -- Normal 模式下，Esc 清空高亮
 keymap('n', '<esc>', ':noh<cr>', opts)
 
