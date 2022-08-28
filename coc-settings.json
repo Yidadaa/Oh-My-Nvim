@@ -7,10 +7,9 @@
     "lua",
     "cmake",
     "vue",
-    "ts",
-    "js"
+    "typescript",
+    "javascript"
   ],
   "git.addGBlameToVirtualText": true,
-  "coc.preferences.extensionUpdateCheck": "daily",
-  "eslint.format.enable": true
+  "coc.preferences.extensionUpdateCheck": "daily"
 }

@@ -21,6 +21,7 @@ vim.cmd [[
   augroup packer_ser_config
     autocmd!
     autocmd BufWritePost install.lua source <afile> | PackerSync
+    autocmd BufWritePost treesitter.lua source <afile> | TSUpdate 
   augroup end
 ]]
 
@@ -246,10 +247,10 @@ return packer.startup(function(use)
       use "christianchiarulli/nvim-cmp"
       use "hrsh7th/cmp-cmdline" -- 补全底部命令行
       use "hrsh7th/cmp-buffer"
-      use {
-        'nvim-treesitter/nvim-treesitter',
-        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-      }
+      -- use {
+      --   'nvim-treesitter/nvim-treesitter',
+      --   run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+      -- }
 
       use "nvim-treesitter/nvim-treesitter-context"
 

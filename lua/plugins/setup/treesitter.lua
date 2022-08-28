@@ -5,9 +5,9 @@ end
 
 configs.setup({
 	ensure_installed = {
-    "c",
-    "cpp",
-    "lua",
+		"c",
+		"cpp",
+		"lua",
 		"javascript",
 		"vim",
 		"json",
@@ -15,31 +15,29 @@ configs.setup({
 		"typescript",
 		"html",
 		"css"
-  }, -- one of "all" or a list of languages
+	}, -- one of "all" or a list of languages
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	highlight = {
 		enable = true, -- false will disable the whole extension
-		disable = {  }, -- list of language that will be disabled
+		disable = {}, -- list of language that will be disabled
 	},
 	autopairs = {
 		enable = true,
 	},
-	indent = { enable = true, disable = {  } },
-  rainbow = {
+	indent = { enable = true, disable = {} },
+	rainbow = {
 		enable = true,
 		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
 		max_file_lines = 65536, -- Do not enable for files with more than n lines, int
-			-- colors = {}, -- table of hex strings
-			-- termcolors = {} -- table of colour name strings
-  },
+	},
 	context_commentstring = {
-    enable = true
-  }
+		enable = true
+	}
 })
 
 require("treesitter-context").setup()
 
 require("indent_blankline").setup {
-  show_current_context = true,
-  show_current_context_start = true,
+	show_current_context = true,
+	show_current_context_start = true,
 }
