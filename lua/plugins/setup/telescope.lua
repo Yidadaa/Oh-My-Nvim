@@ -110,7 +110,7 @@ telescope.setup {
 }
 
 telescope.load_extension('coc')
--- telescope.load_extension('cmake4vim')
+telescope.load_extension('projects')
 
 -- 自定义 telescope picker
 local easypick = require("easypick")
