@@ -81,6 +81,6 @@ keymap('n', '/', ':SearchBoxMatchAll<cr>', opts) -- normal 模式下使用 searc
 keymap('v', '/', [[y:SearchBoxMatchAll <C-R>=escape(@",'/\')<cr><cr>]], opts) -- visual 模式下自动搜索选中的文本
 
 -- 禁用 vim viusal multi 的左右选中快捷键
-vim.g['VM_maps'] = {}
-vim.g['VM_maps']['Select Cursor Left'] = ""
-vim.g['VM_maps']['Select Cursor Right'] = ""
+vim.cmd [[
+let g:VM_default_mappings = 0
+]]
