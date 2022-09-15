@@ -78,6 +78,10 @@ wk.register({
     n = { ":DapStepOver<cr>", "调试步进(step over)" },
     x = { ":DapTerminate<cr>", "调试终止" },
     t = { ":DapVirtualTextToggle<cr>", "调试文本切换显示" },
+  },
+  n = {
+    name = "注释",
+    g = { ":Neogen<cr>", "生成 doxygen 风格注释" }
   }
 }, {
   prefix = "<leader>"
@@ -92,7 +96,6 @@ wk.register({
     r = { "<Plug>(coc-references)", "跳转到实现" },
     j = { "<Plug>(coc-diagnostics-next)", "跳转到下一个问题" },
     k = { "<Plug>(coc-diagnostics-prev)", "跳转到上一个问题" },
-    n = { ":Neogen<cr>", "生成 doxgen 风格注释（c/cpp）" },
 
     l = { ":HopLine<cr>", "跳转到行" },
     w = { ":HopChar1<cr>", "跳转到字符" },
