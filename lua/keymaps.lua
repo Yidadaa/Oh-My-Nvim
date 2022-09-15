@@ -64,10 +64,6 @@ function _G.set_terminal_keymaps()
   vim.keymap.set('t', '<esc><esc>', [[<C-\><C-n>:ToggleTerm<CR>]], opts)
   comp_key_map("t", "=", [[<C-\><C-n>:ToggleTerm<CR>]])
   vim.keymap.set('t', 'kj', [[<C-\><C-n>]], opts)
-  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
-  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
-  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
-  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
@@ -83,3 +79,8 @@ keymap('n', '<leader>p', "<cmd>Telescope command_center<cr>", opts)
 -- 搜索
 keymap('n', '/', ':SearchBoxMatchAll<cr>', opts) -- normal 模式下使用 search box 搜索
 keymap('v', '/', [[y:SearchBoxMatchAll <C-R>=escape(@",'/\')<cr><cr>]], opts) -- visual 模式下自动搜索选中的文本
+
+-- 禁用 vim viusal multi 的左右选中快捷键
+vim.g['VM_maps'] = {}
+vim.g['VM_maps']['Select Cursor Left'] = ""
+vim.g['VM_maps']['Select Cursor Right'] = ""
