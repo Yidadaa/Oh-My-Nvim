@@ -26,12 +26,20 @@
 ```shell
 git clone https://github.com/Yidadaa/Oh-My-Nvim.git ~/.config/nvim
 
-sudo apt install neovim ripgrep fd-find -y
+sudo apt install neovim ripgrep fd-find cargo -y
+
 yarn global add neovim
 
 # cpp 调试工具
+# 方案 1：直接安装最新的
 bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+# 方案 2：安装 llvm-14
+sudo apt install -y llvm-14 lldb-14
 
 # git 终端 ui（可选）
-cargo install gitui
+cargo install gitui --no-default-features
 ```
+
+## TODO
+- [x] 使用 (FTerm)[https://github.com/numToStr/FTerm.nvim] 替代 ToggleTerm
+- [x] 使用 ALE 替换 coc

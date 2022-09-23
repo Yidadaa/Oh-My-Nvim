@@ -1,5 +1,22 @@
 local wk = require("which-key")
 
+function toggle_quickfix()
+  local qf_open = false
+
+  for _, win in pairs(vim.fn.getwininfo()) do
+    if win['quickfix'] == 1 then
+      qf_open = true
+      break
+    end
+  end
+
+  if qf_open then
+    vim.cmd "cclose"
+  else
+    vim.cmd "copen"
+  end
+end
+
 wk.register({
   f = {
     name = "文件操作",
@@ -57,6 +74,7 @@ wk.register({
     l = { ":GitConflictListQf<cr>", "Git 所有冲突 quickfix" },
     s = { ":Telescope git_status<cr>", "Git 查看改动文件状态" },
     c = { ":Telescope git_commits<cr>", "Git 查看 commit" },
+    v = { ":DiffviewOpen<cr>", "Git 查看当前文件改动" },
     h = { ":DiffviewFileHistory<cr>", "Git 查看当前文件历史记录" }
   },
   c = {
@@ -66,7 +84,7 @@ wk.register({
     d = { ":CMake build_and_debug<cr>", "构建并调试当前 target" },
     r = { ":CMake build_and_run<cr>", "构建并运行当前 target" },
     s = { ":CMake select_target<cr>", "切换 CMake target" },
-    x = { ":CMake clear_cache<cr>", "清楚 CMake 缓存" },
+    x = { ":CMake cancel<cr>", "取消 CMake 任务" },
   },
   b = {
     name = "断点",
@@ -82,6 +100,11 @@ wk.register({
   n = {
     name = "注释",
     g = { ":Neogen<cr>", "生成 doxygen 风格注释" }
+  },
+  q = {
+    name = "quickfix 窗口",
+    f = { toggle_quickfix, "切换 quickfix 窗口" },
+    t = { ":tabnew<cr>:copen<cr>:only<cr>", "新 tab 中打开 quickfix 并全屏" },
   }
 }, {
   prefix = "<leader>"

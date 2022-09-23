@@ -28,6 +28,7 @@ local commands = {
   { "CMake: select build type", ":CMake select_build_type<cr>" },
   { "CMake: clean cache", ":CMake clear_cache<cr>" },
   { "CMake: cmake create project", ":CMake create_project<cr>" },
+  { "CMake: cmake cancel", ":CMake cancel<cr>" },
   { "Markdown: preview markdown", ":Glow<cr>" },
   { "Tasks: 执行任务", function() require("telescope").extensions.vstask.tasks() end },
 }
