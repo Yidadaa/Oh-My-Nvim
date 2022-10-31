@@ -11,5 +11,6 @@
     "javascript"
   ],
   "git.addGBlameToVirtualText": true,
-  "coc.preferences.extensionUpdateCheck": "daily"
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "Lua.telemetry.enable": true
 }
