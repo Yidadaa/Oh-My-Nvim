@@ -42,9 +42,6 @@ keymap("n", "<S-d>", "<C-d>", opts)
 -- Normal 模式下，Esc 清空高亮
 keymap('n', '<esc>', ':noh<cr>', opts)
 
--- <leader>bd 关闭 buffer
-keymap('n', '<leader>bd', ':bd<cr>:blast<cr>', opts)
-
 -- 使用 shift + arrow 调整窗口
 keymap("n", "<S-Up>", ":resize -2<CR>", opts)
 keymap("n", "<S-Down>", ":resize +2<CR>", opts)
@@ -58,12 +55,14 @@ keymap("i", "kj", "<ESC>", opts)
 keymap("n", "<leader><leader>", ":Telescope find_files<CR>", opts)
 
 -- Terminal
-comp_key_map("n", "=", ":ToggleTerm<CR>a<BS>")
+comp_key_map("n", "=", ":ToggleTerm<CR>")
 function _G.set_terminal_keymaps()
-  local opts = { buffer = 0 }
-  vim.keymap.set('t', '<esc><esc>', [[<C-\><C-n>:ToggleTerm<CR>]], opts)
-  comp_key_map("t", "=", [[<C-\><C-n>:ToggleTerm<CR>]])
-  vim.keymap.set('t', 'kj', [[<C-\><C-n>]], opts)
+  local term_opts = { buffer = 0 }
+  local exit_term = [[q<BS><C-\><C-n>:ToggleTerm<CR>]]
+  vim.keymap.set('t', '<esc><esc>', exit_term, term_opts)
+  vim.keymap.set('t', '<leader>gg', exit_term, term_opts)
+  comp_key_map("t", "=", exit_term)
+  vim.keymap.set('t', 'kj', [[<C-\><C-n>]], term_opts)
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead

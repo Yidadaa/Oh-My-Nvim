@@ -62,10 +62,16 @@ return packer.startup(function(use)
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
 
+  -- 高亮
   use "nvim-treesitter/nvim-treesitter-context"
 
+  -- 侧边栏
   use "kyazdani42/nvim-tree.lua"
+
+  -- 搜索
   use { "nvim-telescope/telescope.nvim" }
+
+  -- 命令中心
   use {
     "FeiyouG/command_center.nvim",
     requires = { "nvim-telescope/telescope.nvim" }
@@ -80,17 +86,24 @@ return packer.startup(function(use)
     }
   }
 
-  -- ui
+  -- 括号
   use "p00f/nvim-ts-rainbow"
+  -- 底栏
   use 'hoob3rt/lualine.nvim'
+  -- icon
   use "kyazdani42/nvim-web-devicons"
+  -- tab 栏
   use 'kdheepak/tabline.nvim'
+  -- 弹出框 ui
   use 'stevearc/dressing.nvim' -- 增强 vim.select 能力
+  -- 缩进栏
   use "lukas-reineke/indent-blankline.nvim"
+  -- 猜测缩进
   use {
     'nmac427/guess-indent.nvim',
     config = function() require('guess-indent').setup {} end,
   }
+  -- 错误展示
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
@@ -103,13 +116,8 @@ return packer.startup(function(use)
   -- 命令行
   use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
 
-  -- 高亮使用行
-  -- use 'edluffy/specs.nvim'
-
   -- 主题
-  use 'shaunsingh/nord.nvim'
   use 'folke/tokyonight.nvim'
-  use 'rmehri01/onenord.nvim'
 
   -- 补全
   use { 'neoclide/coc.nvim', branch = 'release' }
@@ -122,6 +130,7 @@ return packer.startup(function(use)
   use 'williamboman/mason.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
 
+  -- 快捷键指引
   use "folke/which-key.nvim"
 
   -- 快速跳转
@@ -135,14 +144,6 @@ return packer.startup(function(use)
 
   -- Markdown Preview
   use { "ellisonleao/glow.nvim" }
-
-  -- Dashboard
-  use {
-    'goolord/alpha-nvim',
-    config = function()
-      require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
-    end
-  }
 
   -- CMake
   use 'Shatur/neovim-cmake'
@@ -162,6 +163,7 @@ return packer.startup(function(use)
     end
   }
 
+  -- doxygen 风格注释
   use {
     "danymat/neogen",
     config = function()
@@ -199,6 +201,9 @@ return packer.startup(function(use)
       }
     end
   }
+
+  -- buffer 操作
+  use 'famiu/bufdelete.nvim'
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()

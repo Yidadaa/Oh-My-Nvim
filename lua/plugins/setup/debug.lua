@@ -35,6 +35,7 @@ dap.configurations.cpp = {}
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
 
+dap.defaults.fallback.exception_breakpoints = { 'uncaught', 'raised' }
 
 local dapui = require('dapui')
 dap.listeners.after.event_initialized["dapui_config"] = function()

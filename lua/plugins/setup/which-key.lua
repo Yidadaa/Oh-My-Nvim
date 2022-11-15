@@ -87,7 +87,7 @@ wk.register({
     x = { ":CMake cancel<cr>", "取消 CMake 任务" },
   },
   b = {
-    name = "断点",
+    name = "断点和 buffer",
     b = { ":DapToggleBreakpoint<cr>", "切换断点" },
     r = { ":DapToggleRepl<cr>", "切换 repl 窗口" },
     c = { ":DapContinue<cr>", "执行到下一个断点(continue)" },
@@ -96,6 +96,8 @@ wk.register({
     n = { ":DapStepOver<cr>", "调试步进(step over)" },
     x = { ":DapTerminate<cr>", "调试终止" },
     t = { ":DapVirtualTextToggle<cr>", "调试文本切换显示" },
+    l = { ":lua require'dap'.list_breakpoints()<cr>", "查看所有断点" },
+    d = { ":lua require('bufdelete').bufdelete(0, true)<cr>", "关闭当前窗口" }
   },
   n = {
     name = "注释",
