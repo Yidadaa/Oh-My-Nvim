@@ -91,7 +91,7 @@ return packer.startup(function(use)
   -- 底栏
   use 'hoob3rt/lualine.nvim'
   -- icon
-  use "kyazdani42/nvim-web-devicons"
+  use 'nvim-tree/nvim-web-devicons'
   -- tab 栏
   use 'kdheepak/tabline.nvim'
   -- 弹出框 ui

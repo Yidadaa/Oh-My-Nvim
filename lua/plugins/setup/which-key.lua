@@ -33,7 +33,7 @@ wk.register({
   },
   a = {
     name = "代码操作",
-    c = { "<Plug>(coc-codeaction)", "显示所有代码操作" },
+    c = { ":Telescope coc code_actions<cr>", "显示所有代码操作" },
     f = { "<Plug>(coc-fix-current)", "AutoFix 当前行" },
     l = { "<Plug>(coc-codelens-action)", "显示 Code Lens 操作" },
   },
@@ -51,6 +51,8 @@ wk.register({
     s = { ":Telescope coc document_symbols<cr>", "跳转当前文档的 symbols" },
     p = { ":CocListResume<cr>", "恢复上一次 coc list" },
     r = { ":Telescope coc references<cr>", "查找所有引用" },
+    b = { ":Telescope dap list_breakpoints<cr>", "查看所有断点" },
+    f = { ":Telescope dap frames<cr>", "查看调用栈" },
   },
   t = {
     name = "命令行和文件树",
@@ -96,7 +98,6 @@ wk.register({
     n = { ":DapStepOver<cr>", "调试步进(step over)" },
     x = { ":DapTerminate<cr>", "调试终止" },
     t = { ":DapVirtualTextToggle<cr>", "调试文本切换显示" },
-    l = { ":lua require'dap'.list_breakpoints()<cr>", "查看所有断点" },
     d = { ":lua require('bufdelete').bufdelete(0, true)<cr>", "关闭当前窗口" }
   },
   n = {
