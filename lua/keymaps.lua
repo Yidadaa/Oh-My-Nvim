@@ -60,7 +60,6 @@ function _G.set_terminal_keymaps()
   local term_opts = { buffer = 0 }
   local exit_term = [[q<BS><C-\><C-n>:ToggleTerm<CR>]]
   vim.keymap.set('t', '<esc><esc>', exit_term, term_opts)
-  vim.keymap.set('t', '<leader>gg', exit_term, term_opts)
   comp_key_map("t", "=", exit_term)
   vim.keymap.set('t', 'kj', [[<C-\><C-n>]], term_opts)
 end
