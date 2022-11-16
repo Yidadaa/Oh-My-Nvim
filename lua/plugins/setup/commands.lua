@@ -30,7 +30,6 @@ local commands = {
   { "CMake: cmake create project", ":CMake create_project<cr>" },
   { "CMake: cmake cancel", ":CMake cancel<cr>" },
   { "Markdown: preview markdown", ":Glow<cr>" },
-  { "Tasks: 执行任务", function() require("telescope").extensions.vstask.tasks() end },
 }
 
 for _, cmd in pairs(commands) do
@@ -38,31 +37,3 @@ for _, cmd in pairs(commands) do
 end
 
 telescope.load_extension('command_center')
-
--- VS Tasks
-require("vstask").setup({
-  use_harpoon = true, -- use harpoon to auto cache terminals
-  telescope_keys = { -- change the telescope bindings used to launch tasks
-    vertical = '<C-v>',
-    split = '<C-p>',
-    tab = '<C-t>',
-    current = '<CR>',
-  },
-  terminal = 'toggleterm',
-  term_opts = {
-    vertical = {
-      direction = "vertical",
-      size = "80"
-    },
-    horizontal = {
-      direction = "horizontal",
-      size = "10"
-    },
-    current = {
-      direction = "float",
-    },
-    tab = {
-      direction = 'tab',
-    }
-  }
-})

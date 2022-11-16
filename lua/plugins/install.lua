@@ -77,14 +77,7 @@ return packer.startup(function(use)
     requires = { "nvim-telescope/telescope.nvim" }
   }
   use { 'axkirillov/easypick.nvim', requires = 'nvim-telescope/telescope.nvim' }
-  use {
-    'EthanJWright/vs-tasks.nvim',
-    requires = {
-      'nvim-lua/popup.nvim',
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim'
-    }
-  }
+
 
   -- 括号
   use "p00f/nvim-ts-rainbow"

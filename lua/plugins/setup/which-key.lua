@@ -20,15 +20,14 @@ end
 wk.register({
   f = {
     name = "文件操作",
-    s = { ":Telescope live_grep<CR>", "搜索所有文件" },
+    s = { ":Telescope live_grep<CR>", "搜索文件内容" },
     g = { ":Telescope git_files<CR>", "搜索 git 索引的文件" },
     w = { ":Telescope grep_string<CR>", "搜索当前单词" },
-    f = { ":Telescope buffers<CR>", "搜索 buffer" },
+    b = { ":Telescope buffers<CR>", "搜索 buffer" },
     o = { "<Plug>(coc-format-selected)", "格式化选中区域" },
   },
   s = {
     name = "搜索替换",
-    s = { ":Telescope live_grep<CR>", "搜索所有文件" },
     r = { ":SearchBoxReplace<cr>", "搜索当前文件并替换" },
   },
   a = {
@@ -62,21 +61,20 @@ wk.register({
     h = { ":ToggleTerm direction=horizontal<cr>a<bs>", "水平分割打开命令行" },
     b = { ":ToggleTerm direction=tab<cr>a<bs>", "新 tab 中打开命令行" },
     f = { ":ToggleTerm direction=float<cr>a<bs>", "浮动窗口中打开命令行" },
-    k = { function() require("telescope").extensions.vstask.tasks() end, "执行任务" };
   },
   g = {
     name = "Git 操作",
-    g = { ":TermExec cmd=gitui<cr>", "调用 gitui" },
-    o = { ":GitConflictChooseOurs<cr>", "Git 使用我们的更改" },
-    t = { ":GitConflictChooseTheirs<cr>", "Git 使用他们的更改" },
-    b = { ":GitConflictChooseBoth<cr>", "Git 两个全都要" },
-    n = { ":GitConflictChooseNone<cr>", "Git 全都不要" },
-    j = { ":GitConflictNextConflict<cr>", "Git 下一个冲突" },
-    k = { ":GitConflictPrevConflict<cr>", "Git 上一个冲突" },
-    l = { ":GitConflictListQf<cr>", "Git 所有冲突 quickfix" },
+    g = { ":TermExec cmd=gitui<cr>", "使用 Git UI" },
+    o = { ":GitConflictChooseOurs<cr>", "Git Conflict 使用我们的更改" },
+    t = { ":GitConflictChooseTheirs<cr>", "Git Conflict 使用他们的更改" },
+    b = { ":GitConflictChooseBoth<cr>", "Git Conflict 两个全都要" },
+    n = { ":GitConflictChooseNone<cr>", "Git Conflict 全都不要" },
+    j = { ":GitConflictNextConflict<cr>", "Git Conflict 下一个冲突" },
+    k = { ":GitConflictPrevConflict<cr>", "Git Conflict 上一个冲突" },
+    l = { ":GitConflictListQf<cr>", "Git Conflict quickfix 窗口" },
     s = { ":Telescope git_status<cr>", "Git 查看改动文件状态" },
     c = { ":Telescope git_commits<cr>", "Git 查看 commit" },
-    v = { ":DiffviewOpen<cr>", "Git 查看当前文件改动" },
+    f = { ":DiffviewOpen<cr>", "Git 查看当前文件改动" },
     h = { ":DiffviewFileHistory<cr>", "Git 查看当前文件历史记录" }
   },
   c = {
