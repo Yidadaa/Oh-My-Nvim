@@ -165,6 +165,13 @@ return packer.startup(function(use)
     requires = "nvim-treesitter/nvim-treesitter",
   }
 
+  -- 零延迟 escape
+  use {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("better_escape").setup()
+    end,
+  }
 
   -- 多行编辑
   use 'mg979/vim-visual-multi'

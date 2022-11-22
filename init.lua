@@ -3,6 +3,7 @@ local modules = {
   "plugins.setup.all",
   "options",
   "keymaps",
+  "test",
 }
 
 -- 自动重载

@@ -19,7 +19,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- 快速重载配置
-keymap("n", "<leader><CR>", ":luafile $MYVIMRC<CR>", opts)
+keymap("n", "<leader><CR>", ":luafile $MYVIMRC<CR>:GuessIndent<CR>", opts)
 
 -- 一些模式
 --   normal_mode = "n",
