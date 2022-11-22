@@ -36,6 +36,9 @@ bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 # 方案 2：安装 llvm-14
 sudo apt install -y llvm-14 lldb-14
 
+# 将 lldb-vscode 链接到 /usr/local/bin
+sudo ln -s path/to/lldb-vscode /usr/local/bin/lldb-vscode
+
 # git 终端 ui（可选）
 cargo install gitui --no-default-features
 ```
