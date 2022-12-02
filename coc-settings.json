@@ -1,15 +1,5 @@
 {
-  "cpp.formatting.provider": "clang-format",
-  "coc.preferences.formatOnSaveFiletypes": [
-    "python",
-    "cpp",
-    "json",
-    "lua",
-    "cmake",
-    "vue",
-    "typescript",
-    "javascript"
-  ],
+  "coc.preferences.formatOnSave": true,
   "git.addGBlameToVirtualText": true,
   "coc.preferences.extensionUpdateCheck": "daily",
   "Lua.telemetry.enable": true,
