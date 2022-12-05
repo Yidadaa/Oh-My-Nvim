@@ -48,6 +48,9 @@ return packer.startup(function(use)
   -- Plugin Mangager
   use "wbthomason/packer.nvim" -- Have packer manage itself
 
+  -- 启动加速
+  use 'lewis6991/impatient.nvim'
+
   -- Lua 开发
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "nvim-lua/popup.nvim"
