@@ -5,6 +5,9 @@ local modules = {
   "keymaps",
   "test",
 }
+
+require('impatient')
+
 -- 自动重载
 function init()
   for _, v in pairs(modules) do
