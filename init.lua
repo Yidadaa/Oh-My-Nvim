@@ -6,7 +6,7 @@ local modules = {
   "test",
 }
 
-require('impatient')
+pcall(require, 'impatient')
 
 -- 自动重载
 function init()
