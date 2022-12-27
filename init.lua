@@ -4,6 +4,7 @@ local modules = {
   "options",
   "keymaps",
   "test",
+  "cmd",
 }
 
 pcall(require, 'impatient')

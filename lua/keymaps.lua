@@ -1,6 +1,5 @@
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
-local utils = require('utils')
 
 -- 基础键位设置
 local keymap = vim.api.nvim_set_keymap
