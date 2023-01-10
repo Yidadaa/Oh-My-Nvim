@@ -30,3 +30,7 @@ for k, v in pairs(options) do
 end
 
 vim.opt.guifont = { "JetBrainsMono Nerd Font", "h12" }
+
+if vim.g.neovide then
+  vim.g.neovide_scale_factor = 0.75
+end
