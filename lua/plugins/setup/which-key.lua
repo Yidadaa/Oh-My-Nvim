@@ -106,6 +106,10 @@ wk.register({
     name = "quickfix 窗口",
     f = { toggle_quickfix, "切换 quickfix 窗口" },
     t = { ":tabnew<cr>:copen<cr>:only<cr>", "新 tab 中打开 quickfix 并全屏" },
+  },
+  j = {
+    name = 'Jest',
+    r = { ":JestRun<cr>", "执行当前测试文件" }
   }
 }, {
   prefix = "<leader>"

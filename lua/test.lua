@@ -51,4 +51,59 @@ end
 
 vim.api.nvim_create_user_command("Test", test_command, {})
 
+-- 在父路径中找到目标文件
+local function find_path_in_parent(path, file_path)
+  local target_file_path = ''
+  local fmt_path = ''
+  while target_file_path ~= '/' do
+    fmt_path = fmt_path .. ':h'
+    target_file_path = vim.fn.fnamemodify(path, fmt_path) .. '/' .. file_path
+    if vim.fn.filereadable(target_file_path) == 1 then
+      return target_file_path
+    end
+  end
+  return ''
+end
+
+-- 判定字符串是否为指定后缀
+local function has_suffix_ignore_case(str, suffix)
+  str = string.lower(str)
+  suffix = string.lower(suffix)
+  return string.match(str, suffix .. "$") ~= nil
+end
+
+-- 上次文件后缀
+local last_file_path = nil
+local function jest_run()
+  local current_file_path = vim.fn.expand('%:p')
+
+  -- 如果当前文件不是有效测试文件，则自动运行上次文件
+  if string.find(current_file_path, '.test.ts') == nil then
+    current_file_path = last_file_path
+  else
+    last_file_path = current_file_path
+  end
+
+  if current_file_path == nil then
+    return vim.notify('请在 *.test.ts 中指定该命令！')
+  end
+
+  -- find jest.config.ts
+  local jest_config_path = 'jest.config.ts'
+  jest_config_path       = find_path_in_parent(current_file_path, jest_config_path)
+
+  -- find jest bin
+  local jest_bin_path = 'node_modules/jest/bin/jest.js'
+  jest_bin_path       = find_path_in_parent(current_file_path, jest_bin_path)
+
+  -- find tsconfig.json
+  local ts_config_path = vim.fn.fnamemodify(find_path_in_parent(current_file_path, 'tsconfig.json'), ':h')
+
+  local cmd = [[TermExec cmd='cd ]] .. ts_config_path ..
+      [[ && node "]] .. jest_bin_path .. [[" "]] .. current_file_path .. [[" -c "]] .. jest_config_path .. [["']]
+  vim.cmd(cmd)
+end
+
+vim.api.nvim_create_user_command("JestRun", jest_run, {})
+
 keymap('n', '<leader>rt', ":Test<cr>", opts)

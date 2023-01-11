@@ -30,6 +30,7 @@ local commands = {
   { "CMake: cmake create project", ":CMake create_project<cr>" },
   { "CMake: cmake cancel", ":CMake cancel<cr>" },
   { "Markdown: preview markdown", ":Glow<cr>" },
+  { "Jest: 运行当前测试文件", ":JestRun<cr>" },
 }
 
 for _, cmd in pairs(commands) do
