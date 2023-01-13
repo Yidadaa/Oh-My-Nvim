@@ -6,9 +6,8 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 nvim_tree.setup {
   update_focused_file = {
     enable = true,
-    update_cwd = true,
-    update_root = true
   },
+  auto_reload_on_write = false,
   sync_root_with_cwd = true,
   respect_buf_cwd = true,
   renderer = {

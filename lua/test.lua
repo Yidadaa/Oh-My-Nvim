@@ -11,21 +11,19 @@ local function clear_qf()
   vim.fn.setqflist({}, 'r')
 end
 
-local function test_command()
+-- 从文件中解析 case
+local function parse_cases(tokens, token_regex)
   local content = vim.api.nvim_buf_get_lines(0, 0, -1, false)
   local cursor_postion, _ = unpack(vim.api.nvim_win_get_cursor(0))
 
-  clear_qf()
-
-  -- local tokens = { 'describe', 'test', 'it' }
-  local tokens = { 'GIVEN', 'THEN', 'WHEN', 'SCENARIO', 'AND_GIVEN', 'AND_WHEN', 'AND_THEN', 'SCENARIO_METHOD' }
   local count = 0
   local cases = {}
   local sections = {}
   local max_indent = 0
+
   for index, line in ipairs(content) do
     for _, token in ipairs(tokens) do
-      local test_name = string.match(line, token .. [[%("(.*)"]])
+      local test_name = string.match(line, token_regex(token))
       local indent = string.match(line, "(%s*)" .. token) -- 缩进
       if test_name then
         local indent_size = string.len(indent)
@@ -39,13 +37,23 @@ local function test_command()
     end
   end
 
-  append_to_qf('Found ' .. count .. ' tests, running test:')
-  for _, case in pairs(sections) do
-    local line_number, indent_level, name = unpack(case)
+  return max_indent, sections
+end
 
-    if line_number <= cursor_postion and indent_level <= max_indent then
-      append_to_qf(string.rep(' ', indent_level) .. ' ' .. name)
-    end
+local function test_command()
+  clear_qf()
+
+
+  local tokens = { 'GIVEN', 'THEN', 'WHEN', 'SCENARIO', 'AND_GIVEN', 'AND_WHEN', 'AND_THEN', 'SCENARIO_METHOD' }
+  local token_regex = function(token)
+    return token .. [[%("(.*)"]]
+  end
+
+  local _, sections = parse_cases(tokens, token_regex)
+
+  for _, case in pairs(sections) do
+    local _, indent_level, name = unpack(case)
+    append_to_qf(string.rep(' ', indent_level) .. ' ' .. name)
   end
 end
 
@@ -72,9 +80,28 @@ local function has_suffix_ignore_case(str, suffix)
   return string.match(str, suffix .. "$") ~= nil
 end
 
+-- 获取鼠标处的测试用例名称
+local function get_current_case_name()
+  local tokens = { 'describe', 'test', 'it' }
+  local token_regex = function(token)
+    return token .. [[%('(.*)']]
+  end
+
+  local _, sections = parse_cases(tokens, token_regex)
+  local section_names = {}
+  for _, section in pairs(sections) do
+    local _, _, name = unpack(section)
+    table.insert(section_names, name)
+  end
+
+  local case_name = table.concat(section_names, ' ')
+
+  return case_name
+end
+
 -- 上次文件后缀
 local last_file_path = nil
-local function jest_run()
+local function jest_run(extra_params)
   local current_file_path = vim.fn.expand('%:p')
 
   -- 如果当前文件不是有效测试文件，则自动运行上次文件
@@ -99,11 +126,31 @@ local function jest_run()
   -- find tsconfig.json
   local ts_config_path = vim.fn.fnamemodify(find_path_in_parent(current_file_path, 'tsconfig.json'), ':h')
 
-  local cmd = [[TermExec cmd='cd ]] .. ts_config_path ..
-      [[ && node "]] .. jest_bin_path .. [[" "]] .. current_file_path .. [[" -c "]] .. jest_config_path .. [["']]
+  local jest_cmd = table.concat({
+    'node', jest_bin_path,
+    current_file_path,
+    '-c', jest_config_path,
+    extra_params
+  }, ' ')
+  local cmd = [[TermExec cmd='cd ]] .. ts_config_path .. [[ && ]] .. jest_cmd .. [[']]
   vim.cmd(cmd)
 end
 
-vim.api.nvim_create_user_command("JestRun", jest_run, {})
+local function run_jest_with(extra_params)
+  return function()
+    jest_run(extra_params)
+  end
+end
 
-keymap('n', '<leader>rt', ":Test<cr>", opts)
+-- 执行光标处的 jest test case
+local function jest_run_current_case()
+  local case_name = get_current_case_name()
+
+  vim.notify('执行测试：' .. case_name)
+  jest_run('-t "' .. case_name .. '"')
+end
+
+vim.api.nvim_create_user_command("JestRun", run_jest_with(''), {})
+vim.api.nvim_create_user_command("JestWatch", run_jest_with('--watch'), {})
+vim.api.nvim_create_user_command("JestRunBail", run_jest_with('--bail'), {})
+vim.api.nvim_create_user_command("JestRunSingleCase", jest_run_current_case, {})

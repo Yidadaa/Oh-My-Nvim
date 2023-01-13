@@ -108,8 +108,11 @@ wk.register({
     t = { ":tabnew<cr>:copen<cr>:only<cr>", "新 tab 中打开 quickfix 并全屏" },
   },
   j = {
-    name = 'Jest',
-    r = { ":JestRun<cr>", "执行当前测试文件" }
+    name = 'Jest 测试',
+    r = { ":JestRun<cr>", "执行当前测试文件" },
+    b = { ":JestRunBail<cr>", "执行测试 --bail" },
+    c = { ":JestRunSingleCase<cr>", "执行光标处的用例" },
+    w = { ":JestWatch<cr>", "监听当前测试文件" },
   }
 }, {
   prefix = "<leader>"
