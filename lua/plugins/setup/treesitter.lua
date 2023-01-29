@@ -31,7 +31,8 @@ configs.setup({
 		max_file_lines = 65536, -- Do not enable for files with more than n lines, int
 	},
 	context_commentstring = {
-		enable = true
+		enable = true,
+		enable_autocmd = false
 	}
 })
 

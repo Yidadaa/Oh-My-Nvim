@@ -1,7 +1,18 @@
 {
   "coc.preferences.formatOnSave": true,
   "git.addGBlameToVirtualText": true,
+  "git.showCommitInFloating": true,
+  "git.addedSign.text": "│",
+  "git.addedSign.hlGroup": "GitSignsAdd",
+  "git.removedSign.text": "│",
+  "git.removedSign.hlGroup": "GitSignsDelete",
+  "git.changedSign.text": "│",
+  "git.changedSign.hlGroup": "GitSignsChange",
+  "git.changeRemovedSign.text": "│",
+  "git.changeRemovedSign.hlGroup": "GitSignsChange",
   "coc.preferences.extensionUpdateCheck": "daily",
   "Lua.telemetry.enable": true,
-  "Lua.diagnostics.globals": ["vim"]
+  "Lua.diagnostics.globals": ["vim"],
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false
 }

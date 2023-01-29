@@ -78,8 +78,7 @@ lazy.setup({
     "folke/trouble.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
-      require("trouble").setup {
-      }
+      require("trouble").setup {}
     end
   },
 
@@ -126,7 +125,11 @@ lazy.setup({
 
   -- 注释
   'JoosepAlviste/nvim-ts-context-commentstring',
-  { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end },
+  { 'numToStr/Comment.nvim', config = function()
+    require('Comment').setup {
+      pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+    }
+  end },
 
   -- doxygen 风格注释
   { "danymat/neogen", config = function() require('neogen').setup {} end,
