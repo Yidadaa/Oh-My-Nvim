@@ -1,6 +1,6 @@
 local wk = require("which-key")
 
-function toggle_quickfix()
+local function toggle_quickfix()
   local qf_open = false
 
   for _, win in pairs(vim.fn.getwininfo()) do
@@ -25,6 +25,7 @@ wk.register({
     w = { ":Telescope grep_string<CR>", "搜索当前单词" },
     b = { ":Telescope buffers<CR>", "搜索 buffer" },
     o = { "<Plug>(coc-format-selected)", "格式化选中区域" },
+    a = { ":CocCommand editor.action.formatDocument<cr>" },
   },
   s = {
     name = "搜索替换",
@@ -39,7 +40,7 @@ wk.register({
   r = {
     name = "重命名操作",
     n = { "<Plug>(coc-rename)", "重命名当前变量" },
-    r = { ":SearchBoxReplace<cr>", "搜索当前文件并替换" },
+    r = { ":SearchBoxReplace<cr>", "在当前文件中搜索并替换" },
   },
   l = {
     name = "Coc List 操作",
@@ -61,6 +62,7 @@ wk.register({
     h = { ":ToggleTerm direction=horizontal<cr>a<bs>", "水平分割打开命令行" },
     b = { ":ToggleTerm direction=tab<cr>a<bs>", "新 tab 中打开命令行" },
     f = { ":ToggleTerm direction=float<cr>a<bs>", "浮动窗口中打开命令行" },
+    x = { ":tabclose", "关闭标签页" },
   },
   g = {
     name = "Git 操作",
@@ -72,10 +74,10 @@ wk.register({
     j = { ":GitConflictNextConflict<cr>", "Git Conflict 下一个冲突" },
     k = { ":GitConflictPrevConflict<cr>", "Git Conflict 上一个冲突" },
     l = { ":GitConflictListQf<cr>", "Git Conflict quickfix 窗口" },
-    s = { ":Telescope git_status<cr>", "Git 查看改动文件状态" },
+    s = { ":Telescope git_status<cr>", "Git 搜索改动文件" },
     c = { ":Telescope git_commits<cr>", "Git 查看 commit" },
     f = { ":DiffviewOpen<cr>", "Git 查看当前文件改动" },
-    h = { ":DiffviewFileHistory<cr>", "Git 查看当前文件历史记录" }
+    h = { ":DiffviewFileHistory %<cr>", "Git 查看当前文件历史记录" }
   },
   c = {
     name = "CMake 操作",
@@ -85,6 +87,7 @@ wk.register({
     r = { ":CMake build_and_run<cr>", "构建并运行当前 target" },
     s = { ":CMake select_target<cr>", "切换 CMake target" },
     x = { ":CMake cancel<cr>", "取消 CMake 任务" },
+    a = { ":Catch2RunSingle<cr>", "运行单个 Catch2 Test Case" },
   },
   b = {
     name = "断点和 buffer",
@@ -96,7 +99,7 @@ wk.register({
     n = { ":DapStepOver<cr>", "调试步进(step over)" },
     x = { ":DapTerminate<cr>", "调试终止" },
     t = { ":DapVirtualTextToggle<cr>", "调试文本切换显示" },
-    d = { ":lua require('bufdelete').bufdelete(0, true)<cr>", "关闭当前窗口" }
+    d = { ":lua require('bufdelete').bufdelete(0, true)<cr>", "关闭当前窗口" },
   },
   n = {
     name = "注释",
@@ -106,6 +109,13 @@ wk.register({
     name = "quickfix 窗口",
     f = { toggle_quickfix, "切换 quickfix 窗口" },
     t = { ":tabnew<cr>:copen<cr>:only<cr>", "新 tab 中打开 quickfix 并全屏" },
+  },
+  j = {
+    name = 'Jest 测试',
+    r = { ":JestRun<cr>", "执行当前测试文件" },
+    b = { ":JestRunBail<cr>", "执行测试 --bail" },
+    c = { ":JestRunSingleCase<cr>", "执行光标处的用例" },
+    w = { ":JestWatch<cr>", "监听当前测试文件" },
   }
 }, {
   prefix = "<leader>"

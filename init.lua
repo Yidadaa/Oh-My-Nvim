@@ -1,5 +1,5 @@
 local modules = {
-  "plugins.install",
+  "plugins.init",
   "plugins.setup.all",
   "options",
   "keymaps",
@@ -10,7 +10,7 @@ local modules = {
 pcall(require, 'impatient')
 
 -- 自动重载
-function init()
+local function init()
   for _, v in pairs(modules) do
     package.loaded[v] = nil
     require(v)
