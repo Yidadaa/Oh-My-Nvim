@@ -1,6 +1,6 @@
 local wk = require("which-key")
 
-function toggle_quickfix()
+local function toggle_quickfix()
   local qf_open = false
 
   for _, win in pairs(vim.fn.getwininfo()) do
