@@ -8,8 +8,8 @@ nvim_tree.setup {
     enable = true,
   },
   auto_reload_on_write = false,
-  sync_root_with_cwd = true,
-  respect_buf_cwd = true,
+  sync_root_with_cwd = false,
+  respect_buf_cwd = false,
   renderer = {
     root_folder_modifier = ":t",
     icons = {

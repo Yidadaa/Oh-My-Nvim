@@ -199,7 +199,7 @@ return packer.startup(function(use)
     config = function()
       require("project_nvim").setup {
         patterns = {
-          ".git", ".vscode", "README.md", "package.json"
+          ".git", ".vscode", "Makefile"
         }
       }
     end
