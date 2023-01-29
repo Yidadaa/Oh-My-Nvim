@@ -1,7 +1,49 @@
-require("null-ls").setup({
-    sources = {
-        require("null-ls").builtins.formatting.stylua,
-        require("null-ls").builtins.diagnostics.eslint,
-        require("null-ls").builtins.completion.spell,
-    },
-})
+require("mason").setup()
+require("mason-lspconfig").setup {
+  ensure_installed = {
+    "clangd", "eslint", "jsonls", "tsserver", "remark_ls",
+    "pyright", "rust_analyzer", "volar",
+    "sumneko_lua", "bashls" }
+}
+
+local lsp = require("lspconfig")
+
+-- 使用圆角窗口
+local _border = "rounded"
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+  border = _border
+}
+)
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+  vim.lsp.handlers.signature_help, {
+  border = _border
+}
+)
+
+vim.diagnostic.config {
+  float = { border = _border }
+}
+
+require('lspconfig.ui.windows').default_options = {
+  border = _border
+}
+
+lsp.clangd.setup {}
+lsp.eslint.setup {}
+lsp.jsonls.setup {}
+lsp.tsserver.setup {}
+lsp.remark_ls.setup {}
+lsp.pyright.setup {}
+lsp.rust_analyzer.setup {}
+lsp.volar.setup {}
+lsp.sumneko_lua.setup {}
+lsp.bashls.setup {}
+
+lsp.util.default_config.capabilities = vim.tbl_deep_extend(
+  'force',
+  lsp.util.default_config.capabilities,
+  require('cmp_nvim_lsp').default_capabilities()
+)

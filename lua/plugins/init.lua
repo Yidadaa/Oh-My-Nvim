@@ -32,14 +32,17 @@ lazy.setup({
   -- 补全
   "christianchiarulli/nvim-cmp",
   "hrsh7th/cmp-cmdline", -- 补全底部命令行
+  "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-buffer",
+  "hrsh7th/cmp-path",
+  "L3MON4D3/LuaSnip",
+  "saadparwaiz1/cmp_luasnip",
+
+  -- 高亮
   {
     'nvim-treesitter/nvim-treesitter',
     build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   },
-
-
-  -- 高亮
   "nvim-treesitter/nvim-treesitter-context",
 
   -- 侧边栏
@@ -89,15 +92,23 @@ lazy.setup({
   'folke/tokyonight.nvim',
 
   -- 补全
-  { 'neoclide/coc.nvim', branch = 'release', lazy = false },
-  'fannheyward/telescope-coc.nvim',
-  { 'ms-jpq/coq_nvim', branch = 'coq' },
-  { 'ms-jpq/coq.artifacts', branch = 'artifacts' },
-  { 'ms-jpq/coq.thirdparty', branch = '3p' },
+  -- { 'neoclide/coc.nvim', branch = 'release', lazy = false },
+  -- 'fannheyward/telescope-coc.nvim',
+  -- { 'ms-jpq/coq_nvim', branch = 'coq' },
+  -- { 'ms-jpq/coq.artifacts', branch = 'artifacts' },
+  -- { 'ms-jpq/coq.thirdparty', branch = '3p' },
 
   -- 格式化
-  'williamboman/mason.nvim',
-  'jose-elias-alvarez/null-ls.nvim',
+  -- 'williamboman/mason.nvim',
+  -- 'jose-elias-alvarez/null-ls.nvim',
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
+  "neovim/nvim-lspconfig",
+
+  -- 符号树
+  { "simrat39/symbols-outline.nvim", config = function()
+    require("symbols-outline").setup()
+  end },
 
   -- 快捷键指引
   "folke/which-key.nvim",
@@ -147,6 +158,10 @@ lazy.setup({
   -- git
   { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
   { 'akinsho/git-conflict.nvim', config = function() require('git-conflict').setup() end },
+  'f-person/git-blame.nvim',
+  { 'lewis6991/gitsigns.nvim', version = 'release', config = function()
+    require('gitsigns').setup()
+  end },
 
   -- 项目管理
   {

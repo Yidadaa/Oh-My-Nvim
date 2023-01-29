@@ -17,6 +17,13 @@ local function toggle_quickfix()
   end
 end
 
+local function autofix()
+    vim.lsp.buf.code_action({
+        filter = function(a) return a.isPreferred end,
+        apply = true
+    })
+end
+
 wk.register({
   f = {
     name = "文件操作",
@@ -24,8 +31,7 @@ wk.register({
     g = { ":Telescope git_files<CR>", "搜索 git 索引的文件" },
     w = { ":Telescope grep_string<CR>", "搜索当前单词" },
     b = { ":Telescope buffers<CR>", "搜索 buffer" },
-    o = { "<Plug>(coc-format-selected)", "格式化选中区域" },
-    a = { ":CocCommand editor.action.formatDocument<cr>" },
+    f = { ":lua vim.lsp.buf.format{ async = true }<cr>", "格式化当前文件" },
   },
   s = {
     name = "搜索替换",
@@ -33,24 +39,19 @@ wk.register({
   },
   a = {
     name = "代码操作",
-    c = { ":Telescope coc code_actions<cr>", "显示所有代码操作" },
-    f = { "<Plug>(coc-fix-current)", "AutoFix 当前行" },
-    l = { "<Plug>(coc-codelens-action)", "显示 Code Lens 操作" },
+    f = { autofix, "当前行 Auto Fix" },
+    c = { vim.lsp.buf.code_actions, "显示 Code Actions 操作" },
   },
   r = {
     name = "重命名操作",
-    n = { "<Plug>(coc-rename)", "重命名当前变量" },
+    n = { vim.lsp.buf.rename, "重命名当前变量" },
     r = { ":SearchBoxReplace<cr>", "在当前文件中搜索并替换" },
   },
   l = {
-    name = "Coc List 操作",
-    d = { ":Telescope coc diagnostics<cr>", "跳转诊断信息" },
-    e = { ":CocList extensions<cr>", "跳转 coc extensions" },
-    c = { ":Telescope coc commands<cr>", "跳转 coc commands" },
-    o = { ":CocList outline<cr>", "跳转 coc outline" },
-    s = { ":Telescope coc document_symbols<cr>", "跳转当前文档的 symbols" },
-    p = { ":CocListResume<cr>", "恢复上一次 coc list" },
-    r = { ":Telescope coc references<cr>", "查找所有引用" },
+    name = "调试和代码符号信息列表操作",
+    d = { ":Telescope diagnostics<cr>", "跳转诊断信息" },
+    s = { ":SymbolsOutline<cr>", "符号表大纲" },
+    r = { ":Telescope lsp_references<cr>", "查找所有引用" },
     b = { ":Telescope dap list_breakpoints<cr>", "查看所有断点" },
     f = { ":Telescope dap frames<cr>", "查看调用栈" },
   },
@@ -123,13 +124,14 @@ wk.register({
 
 wk.register({
   g = {
-    name = "Coc 操作",
-    d = { "<Plug>(coc-definition)", "跳转到函数定义" },
-    y = { "<Plug>(coc-type-definition)", "跳转到类型定义" },
-    i = { "<Plug>(coc-implementation)", "跳转到实现" },
-    r = { "<Plug>(coc-references)", "跳转到实现" },
-    j = { "<Plug>(coc-diagnostics-next)", "跳转到下一个问题" },
-    k = { "<Plug>(coc-diagnostics-prev)", "跳转到上一个问题" },
+    name = "代码操作",
+    h = { vim.lsp.buf.hover, "鼠标悬浮操作" },
+    d = { vim.lsp.buf.definition, "跳转到函数定义" },
+    t = { vim.lsp.buf.type_definition, "跳转到类型定义" },
+    i = { vim.lsp.buf.implementations, "跳转到实现" },
+    r = { vim.lsp.buf.references, "跳转到引用" },
+    j = { vim.diagnostic.goto_next, "跳转到下一个问题" },
+    k = { vim.diagnostic.goto_prev, "跳转到上一个问题" },
 
     l = { ":HopLine<cr>", "跳转到行" },
     w = { ":HopChar1<cr>", "跳转到字符" },
@@ -146,14 +148,4 @@ wk.register({
   }
 }, {
   prefix = ""
-});
-
-wk.register({
-  f = {
-    name = "格式化操作",
-    f = { "<Plug>(coc-format-selected)", "格式化选中区域" },
-  }
-}, {
-  prefix = "<leader>",
-  mode = "x"
 });

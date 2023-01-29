@@ -7,3 +7,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
     vim.cmd("silent GuessIndent auto_cmd")
   end
 })
+
+-- 自动格式化
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]

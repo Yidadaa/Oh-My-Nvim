@@ -32,8 +32,6 @@ local commands = {
   { "Markdown: preview markdown", ":Glow<cr>" },
   { "Jest: 运行当前测试文件", ":JestRun<cr>" },
   { "Telescope: 全部命令", ":Telescope<cr>" },
-  { "Coc: 全部 coc 选项", ":Telescope coc<cr>" },
-  { "Coc Command: 全部命令", ":Telescope coc commands<cr>" },
 }
 
 for _, cmd in pairs(commands) do

@@ -1,1 +1,5 @@
-require("mason").setup()
+require("mason").setup {
+  ui = {
+    border = "rounded",
+  }
+}

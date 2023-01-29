@@ -109,7 +109,7 @@ telescope.setup {
   }
 }
 
-telescope.load_extension('coc')
+-- telescope.load_extension('coc')
 telescope.load_extension('projects')
 
 -- 自定义 telescope picker
