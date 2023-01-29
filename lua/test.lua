@@ -28,36 +28,103 @@ local function parse_cases(tokens, token_regex)
       if test_name then
         local indent_size = string.len(indent)
         count = count + 1
-        table.insert(cases, { index, indent_size, test_name })
+        table.insert(cases, { index, indent_size, test_name, token })
         if index <= cursor_postion then
           max_indent = indent_size
-          sections[indent_size] = { index, indent_size, test_name }
+          sections[indent_size] = { index, indent_size, test_name, token }
+
+          -- 删除所有比当前缩进更大的 section
+          for _, section in pairs(sections) do
+            local _, current_indent, _, _ = unpack(section)
+            if current_indent > max_indent then
+              sections[current_indent] = nil
+            end
+          end
         end
       end
     end
   end
 
+
   return max_indent, sections
+end
+
+local function wrap_with(content, surround)
+  return surround .. content .. surround
 end
 
 local function test_command()
   clear_qf()
 
+  local tokens = {}
+  local token_names = {
+    SCENARIO        = 'Scenario: ',
+    SCENARIO_METHOD = 'Scenario: ',
+    GIVEN           = '    Given: ',
+    WHEN            = '     When: ',
+    THEN            = '     Then: ',
+    AND_GIVEN       = 'And given: ',
+    AND_WHEN        = ' And when: ',
+    AND_THEN        = ' And then: ',
+  }
 
-  local tokens = { 'GIVEN', 'THEN', 'WHEN', 'SCENARIO', 'AND_GIVEN', 'AND_WHEN', 'AND_THEN', 'SCENARIO_METHOD' }
+  for token, _ in pairs(token_names) do
+    table.insert(tokens, token)
+  end
+
   local token_regex = function(token)
     return token .. [[%("(.*)"]]
   end
 
   local _, sections = parse_cases(tokens, token_regex)
 
+  -- 按缩进排序
+  local indents = {}
   for _, case in pairs(sections) do
-    local _, indent_level, name = unpack(case)
-    append_to_qf(string.rep(' ', indent_level) .. ' ' .. name)
+    local _, indent_level, _, _ = unpack(case)
+    table.insert(indents, indent_level)
   end
+
+  table.sort(indents)
+
+  -- 生成 catch2 运行命令
+  local catch2_section_param = {}
+  local is_test_case = true
+  for _, indent in pairs(indents) do
+    local _, _, name, token = unpack(sections[indent])
+
+    append_to_qf(token_names[token] .. name)
+
+    local section_prefix = '-c '
+    if is_test_case then
+      section_prefix = ''
+      is_test_case = false
+    end
+
+    table.insert(catch2_section_param, section_prefix .. wrap_with(token_names[token] .. name, [["]]))
+  end
+
+  local catch2_param = table.concat(catch2_section_param, ' ')
+  catch2_param = catch2_param:gsub(' ', '\\ ')
+
+  local ProjectConfig = require('cmake.project_config')
+  local config = ProjectConfig.new()
+  local target_dir, target, _ = config:get_current_target()
+
+  if not target_dir or not target then
+    return print('请在 CMake 项目中运行此命令')
+  end
+
+  local cmd_text = target.filename .. ' ' .. catch2_param
+  append_to_qf(cmd_text)
+
+  local cmd = "TermExec  direction=horizontal cmd=" .. wrap_with(cmd_text, [[']])
+  append_to_qf(cmd)
+
+  vim.cmd(cmd)
 end
 
-vim.api.nvim_create_user_command("Test", test_command, {})
+vim.api.nvim_create_user_command("Catch2RunSingle", test_command, {})
 
 -- 在父路径中找到目标文件
 local function find_path_in_parent(path, file_path)

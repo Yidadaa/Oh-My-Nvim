@@ -87,6 +87,7 @@ wk.register({
     r = { ":CMake build_and_run<cr>", "构建并运行当前 target" },
     s = { ":CMake select_target<cr>", "切换 CMake target" },
     x = { ":CMake cancel<cr>", "取消 CMake 任务" },
+    a = { ":Catch2RunSingle<cr>", "运行单个 Catch2 Test Case" },
   },
   b = {
     name = "断点和 buffer",
@@ -98,7 +99,7 @@ wk.register({
     n = { ":DapStepOver<cr>", "调试步进(step over)" },
     x = { ":DapTerminate<cr>", "调试终止" },
     t = { ":DapVirtualTextToggle<cr>", "调试文本切换显示" },
-    d = { ":lua require('bufdelete').bufdelete(0, true)<cr>", "关闭当前窗口" }
+    d = { ":lua require('bufdelete').bufdelete(0, true)<cr>", "关闭当前窗口" },
   },
   n = {
     name = "注释",
