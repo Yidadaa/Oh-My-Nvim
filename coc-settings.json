@@ -32,8 +32,8 @@
     "borderhighlight": "FloatBorder",
     "maxWidth": 50
   },
-  "suggest.virtualText": true,
   "suggest.maxCompleteItemCount": 10,
+  "suggest.labelMaxLength": 100,
   "suggest.completionItemKindLabels": {
     "keyword": "",
     "variable": "",
@@ -49,7 +49,7 @@
     "interface": "",
     "text": "",
     "enum": "",
-    "enumMember": "",
+    "enumMember": "",
     "module": "",
     "color": "",
     "property": "",
