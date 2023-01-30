@@ -21,8 +21,9 @@ if not status_ok then
 end
 
 lazy.setup({
-  -- 启动加速
-  { 'lewis6991/impatient.nvim', lazy = false },
+  ui = {
+    border = "curved"
+  },
 
   -- Lua 开发
   "nvim-lua/plenary.nvim",
@@ -33,6 +34,7 @@ lazy.setup({
   "christianchiarulli/nvim-cmp",
   "hrsh7th/cmp-cmdline", -- 补全底部命令行
   "hrsh7th/cmp-buffer",
+  "hrsh7th/cmp-path",
   {
     'nvim-treesitter/nvim-treesitter',
     build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
@@ -73,14 +75,6 @@ lazy.setup({
     'nmac427/guess-indent.nvim',
     config = function() require('guess-indent').setup {} end,
   },
-  -- 错误展示
-  {
-    "folke/trouble.nvim",
-    dependencies = "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("trouble").setup {}
-    end
-  },
 
   -- 命令行
   { "akinsho/toggleterm.nvim", version = 'v2.*' },
@@ -91,13 +85,6 @@ lazy.setup({
   -- 补全
   { 'neoclide/coc.nvim', branch = 'release', lazy = false },
   'fannheyward/telescope-coc.nvim',
-  { 'ms-jpq/coq_nvim', branch = 'coq' },
-  { 'ms-jpq/coq.artifacts', branch = 'artifacts' },
-  { 'ms-jpq/coq.thirdparty', branch = '3p' },
-
-  -- 格式化
-  'williamboman/mason.nvim',
-  'jose-elias-alvarez/null-ls.nvim',
 
   -- 快捷键指引
   "folke/which-key.nvim",

@@ -7,8 +7,6 @@ local modules = {
   "cmd",
 }
 
-pcall(require, 'impatient')
-
 -- 自动重载
 local function init()
   for _, v in pairs(modules) do

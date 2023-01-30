@@ -1,5 +1,6 @@
 {
   "coc.preferences.formatOnSave": true,
+
   "git.addGBlameToVirtualText": true,
   "git.showCommitInFloating": true,
   "git.addedSign.text": "║",
@@ -10,9 +11,55 @@
   "git.changedSign.hlGroup": "GitSignsChange",
   "git.changeRemovedSign.text": "║",
   "git.changeRemovedSign.hlGroup": "GitSignsChange",
+
   "coc.preferences.extensionUpdateCheck": "daily",
+
   "Lua.telemetry.enable": true,
   "Lua.diagnostics.globals": ["vim"],
+
   "diagnostic.virtualText": true,
-  "diagnostic.virtualTextCurrentLineOnly": false
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "codeLens.enable": true,
+  "floatFactory.floatConfig": {
+    "rounded": true,
+    "border": true,
+    "borderhighlight": "FloatBorder",
+    "maxWidth": 50
+  },
+  "suggest.floatConfig": {
+    "rounded": true,
+    "border": true,
+    "borderhighlight": "FloatBorder",
+    "maxWidth": 50
+  },
+  "suggest.virtualText": true,
+  "suggest.maxCompleteItemCount": 10,
+  "suggest.completionItemKindLabels": {
+    "keyword": "",
+    "variable": "",
+    "value": "",
+    "operator": "Ψ",
+    "constructor": "",
+    "function": "ƒ",
+    "reference": "渚",
+    "constant": "",
+    "method": "",
+    "struct": "פּ",
+    "class": "פּ",
+    "interface": "",
+    "text": "",
+    "enum": "",
+    "enumMember": "",
+    "module": "",
+    "color": "",
+    "property": "",
+    "field": "料",
+    "unit": "",
+    "event": "鬒",
+    "file": "",
+    "folder": "",
+    "snippet": "",
+    "typeParameter": "",
+    "default": ""
+  }
 }

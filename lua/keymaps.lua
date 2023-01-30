@@ -1,14 +1,13 @@
 local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
 
 -- 基础键位设置
 local keymap = vim.api.nvim_set_keymap
 
 -- 为 Meta / Alt 分配键位，从而使得 Windows 和 Mac 的体验一致
-function comp_key_map(mode, key, command)
+local function comp_key_map(mode, key, command)
   local lead_keys = { 'M', 'A' }
   for _, lead in pairs(lead_keys) do
-    local key = string.format('<%s-%s>', lead, key)
+    key = string.format('<%s-%s>', lead, key)
     keymap(mode, key, command, opts)
   end
 end

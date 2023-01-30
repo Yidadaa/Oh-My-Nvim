@@ -5,8 +5,6 @@ local configs = {
   'plugins.setup.fterm',
   'plugins.setup.tabline',
   'plugins.setup.theme',
-  'plugins.setup.mason',
-  'plugins.setup.lsp',
   'plugins.setup.coc',
   'plugins.setup.cmp',
   'plugins.setup.which-key',
