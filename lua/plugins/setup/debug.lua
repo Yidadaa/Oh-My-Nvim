@@ -11,8 +11,7 @@ require("dapui").setup {
     },
     {
       elements = {
-        "repl",
-        "console",
+        "repl"
       },
       size = 0.25,
       position = 'bottom'

@@ -118,10 +118,21 @@ local function test_command()
   local cmd_text = target.filename .. ' ' .. catch2_param
   append_to_qf(cmd_text)
 
-  local cmd = "TermExec  direction=horizontal cmd=" .. wrap_with(cmd_text, [[']])
+  local cmd = "TermExec cmd=" .. wrap_with(cmd_text, [[']])
   append_to_qf(cmd)
 
-  vim.cmd(cmd)
+  local job = require("cmake").build()
+
+  if job then
+    job:after(vim.schedule_wrap(
+      function(_, exit_code)
+        if exit_code == 0 then
+          vim.cmd(cmd)
+        end
+      end
+    ))
+  end
+
 end
 
 vim.api.nvim_create_user_command("Catch2RunSingle", test_command, {})
