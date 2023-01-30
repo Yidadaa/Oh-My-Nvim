@@ -9,4 +9,11 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
 })
 
 -- 自动格式化
-vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+vim.api.nvim_create_augroup('auto_format', { clear = true })
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = "auto_format",
+  pattern = { "*.*" },
+  callback = function()
+    vim.lsp.buf.formatting_sync()
+  end
+})

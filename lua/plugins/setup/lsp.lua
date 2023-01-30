@@ -1,9 +1,11 @@
 require("mason").setup()
+
 require("mason-lspconfig").setup {
   ensure_installed = {
     "clangd", "eslint", "jsonls", "tsserver", "remark_ls",
     "pyright", "rust_analyzer", "volar",
-    "sumneko_lua", "bashls" }
+    "sumneko_lua", "bashls"
+  }
 }
 
 local lsp = require("lspconfig")
@@ -31,6 +33,19 @@ require('lspconfig.ui.windows').default_options = {
   border = _border
 }
 
+-- 格式化
+local null_ls = require("null-ls")
+
+null_ls.setup {
+  sources = {
+    null_ls.builtins.formatting.prettierd,
+    null_ls.builtins.diagnostics.eslint_d.with({
+      diagnostics_format = '[eslint] #{m}\n(#{c})'
+    }),
+  },
+  border = 'rounded'
+}
+
 lsp.clangd.setup {}
 lsp.eslint.setup {}
 lsp.jsonls.setup {}
@@ -41,6 +56,7 @@ lsp.rust_analyzer.setup {}
 lsp.volar.setup {}
 lsp.sumneko_lua.setup {}
 lsp.bashls.setup {}
+lsp.cmake.setup {}
 
 lsp.util.default_config.capabilities = vim.tbl_deep_extend(
   'force',

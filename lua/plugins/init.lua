@@ -37,6 +37,30 @@ lazy.setup({
   "hrsh7th/cmp-path",
   "L3MON4D3/LuaSnip",
   "saadparwaiz1/cmp_luasnip",
+  {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  },
+
+  -- 格式化
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
+  "jay-babu/mason-null-ls.nvim",
+  "neovim/nvim-lspconfig",
+  'mhartington/formatter.nvim',
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+
+  -- 错误提示
+  {
+    "folke/trouble.nvim",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {}
+    end
+  },
 
   -- 高亮
   {
@@ -91,19 +115,6 @@ lazy.setup({
   -- 主题
   'folke/tokyonight.nvim',
 
-  -- 补全
-  -- { 'neoclide/coc.nvim', branch = 'release', lazy = false },
-  -- 'fannheyward/telescope-coc.nvim',
-  -- { 'ms-jpq/coq_nvim', branch = 'coq' },
-  -- { 'ms-jpq/coq.artifacts', branch = 'artifacts' },
-  -- { 'ms-jpq/coq.thirdparty', branch = '3p' },
-
-  -- 格式化
-  -- 'williamboman/mason.nvim',
-  -- 'jose-elias-alvarez/null-ls.nvim',
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
-  "neovim/nvim-lspconfig",
 
   -- 符号树
   { "simrat39/symbols-outline.nvim", config = function()
