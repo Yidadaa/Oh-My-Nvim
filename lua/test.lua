@@ -110,14 +110,6 @@ local function catch2_test_command(should_debug)
     table.insert(catch2_section_param, section_prefix .. token_names[token] .. name)
   end
 
-  local ProjectConfig = require('cmake.project_config')
-  local config = ProjectConfig.new()
-  local target_dir, target, _ = config:get_current_target()
-
-  if not target_dir or not target then
-    return print('请在 CMake 项目中运行此命令')
-  end
-
   -- 禁用 catch2 颜色输出
   table.insert(catch2_section_param, '--colour-mode none')
 
@@ -125,14 +117,12 @@ local function catch2_test_command(should_debug)
   local job = cmake.build()
 
   if job then
-    job:after(vim.schedule_wrap(
-      function(_, exit_code)
-        if exit_code == 0 then
-          if should_debug then
-            cmake.debug(unpack(catch2_section_param))
-          else
-            cmake.run(unpack(catch2_section_param))
-          end
+    job:after_success(vim.schedule_wrap(
+      function()
+        if should_debug then
+          cmake.debug(unpack(catch2_section_param))
+        else
+          cmake.run(unpack(catch2_section_param))
         end
       end
     ))
