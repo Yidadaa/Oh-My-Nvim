@@ -16,6 +16,7 @@
 
   "Lua.telemetry.enable": true,
   "Lua.diagnostics.globals": ["vim"],
+  "Lua.runtime.version": "Lua 5.1",
 
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,

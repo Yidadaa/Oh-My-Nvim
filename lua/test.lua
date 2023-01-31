@@ -53,7 +53,7 @@ local function wrap_with(content, surround)
   return surround .. content .. surround
 end
 
-local function test_command()
+local function catch2_test_command(should_debug)
   clear_qf()
 
   local tokens = {}
@@ -101,11 +101,14 @@ local function test_command()
       is_test_case = false
     end
 
-    table.insert(catch2_section_param, section_prefix .. wrap_with(token_names[token] .. name, [["]]))
-  end
+    -- Escape 掉特殊字符
+    local escape_chars = { '[', ']', ',' }
+    for _, char in pairs(escape_chars) do
+      name = name:gsub('%' .. char, '\\' .. char)
+    end
 
-  local catch2_param = table.concat(catch2_section_param, ' ')
-  catch2_param = catch2_param:gsub(' ', '\\ ')
+    table.insert(catch2_section_param, section_prefix .. token_names[token] .. name)
+  end
 
   local ProjectConfig = require('cmake.project_config')
   local config = ProjectConfig.new()
@@ -115,27 +118,33 @@ local function test_command()
     return print('请在 CMake 项目中运行此命令')
   end
 
-  local cmd_text = target.filename .. ' ' .. catch2_param
-  append_to_qf(cmd_text)
+  -- 禁用 catch2 颜色输出
+  table.insert(catch2_section_param, '--colour-mode none')
 
-  local cmd = "TermExec cmd=" .. wrap_with(cmd_text, [[']])
-  append_to_qf(cmd)
-
-  local job = require("cmake").build()
+  local cmake = require("cmake")
+  local job = cmake.build()
 
   if job then
     job:after(vim.schedule_wrap(
       function(_, exit_code)
         if exit_code == 0 then
-          vim.cmd(cmd)
+          if should_debug then
+            cmake.debug(unpack(catch2_section_param))
+          else
+            cmake.run(unpack(catch2_section_param))
+          end
         end
       end
     ))
   end
-
 end
 
-vim.api.nvim_create_user_command("Catch2RunSingle", test_command, {})
+vim.api.nvim_create_user_command("Catch2RunSingle", function()
+  catch2_test_command()
+end, {})
+vim.api.nvim_create_user_command("Catch2DebugSingle", function()
+  catch2_test_command(true)
+end, {})
 
 -- 在父路径中找到目标文件
 local function find_path_in_parent(path, file_path)

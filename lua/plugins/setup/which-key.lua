@@ -87,7 +87,8 @@ wk.register({
     r = { ":CMake build_and_run<cr>", "构建并运行当前 target" },
     s = { ":CMake select_target<cr>", "切换 CMake target" },
     x = { ":CMake cancel<cr>", "取消 CMake 任务" },
-    a = { ":Catch2RunSingle<cr>", "运行单个 Catch2 Test Case" },
+    ar = { ":Catch2RunSingle<cr>", "运行单个 Catch2 Test Case" },
+    ad = { ":Catch2DebugSingle<cr>", "调试单个 Catch2 Test Case" },
   },
   b = {
     name = "断点和 buffer",
