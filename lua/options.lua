@@ -23,6 +23,8 @@ local options = {
   numberwidth = 4,
   signcolumn = "yes",
   wrap = false, -- 不换行
+
+  switchbuf = "usetab,uselast",
 }
 
 for k, v in pairs(options) do

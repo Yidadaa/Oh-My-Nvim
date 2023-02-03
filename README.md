@@ -48,3 +48,6 @@ sudo ln -s path/to/lldb-vscode /usr/local/bin/lldb-vscode
 # git 终端 ui（可选）
 cargo install gitui --no-default-features
 ```
+
+## TODO
+- [ ] 集成 neotest

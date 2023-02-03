@@ -1,5 +1,6 @@
 {
-  "coc.preferences.formatOnSave": true,
+  "coc.preferences.formatOnSave": false,
+  "notification.statusLineProgress": false,
 
   "git.addGBlameToVirtualText": true,
   "git.showCommitInFloating": true,

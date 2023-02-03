@@ -25,6 +25,9 @@ lazy.setup({
     border = "curved"
   },
 
+  -- UI
+  "rcarriga/nvim-notify",
+
   -- Lua 开发
   "nvim-lua/plenary.nvim",
   "nvim-lua/popup.nvim",
@@ -97,9 +100,6 @@ lazy.setup({
       require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   },
-
-  -- Markdown Preview
-  { "ellisonleao/glow.nvim" },
 
   -- CMake
   'Shatur/neovim-cmake',

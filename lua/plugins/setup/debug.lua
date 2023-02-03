@@ -38,6 +38,7 @@ dap.defaults.fallback.exception_breakpoints = { 'uncaught', 'raised' }
 
 local dapui = require('dapui')
 dap.listeners.after.event_initialized["dapui_config"] = function()
+    vim.notify("Launching DAP UI, please wait...", nil, { title = "DAP" })
   dapui.open()
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()

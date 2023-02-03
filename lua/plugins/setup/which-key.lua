@@ -24,8 +24,7 @@ wk.register({
     g = { ":Telescope git_files<CR>", "搜索 git 索引的文件" },
     w = { ":Telescope grep_string<CR>", "搜索当前单词" },
     b = { ":Telescope buffers<CR>", "搜索 buffer" },
-    o = { "<Plug>(coc-format-selected)", "格式化选中区域" },
-    a = { ":CocCommand editor.action.formatDocument<cr>" },
+    f = { ":call CocActionAsync('format')<CR>", "格式化 buffer" },
   },
   s = {
     name = "搜索替换",
@@ -43,16 +42,14 @@ wk.register({
     r = { ":SearchBoxReplace<cr>", "在当前文件中搜索并替换" },
   },
   l = {
-    name = "Coc List 操作",
+    name = "查看操作",
     d = { ":Telescope coc diagnostics<cr>", "跳转诊断信息" },
-    e = { ":CocList extensions<cr>", "跳转 coc extensions" },
     c = { ":Telescope coc commands<cr>", "跳转 coc commands" },
-    o = { ":CocList outline<cr>", "跳转 coc outline" },
     s = { ":Telescope coc document_symbols<cr>", "跳转当前文档的 symbols" },
-    p = { ":CocListResume<cr>", "恢复上一次 coc list" },
     r = { ":Telescope coc references<cr>", "查找所有引用" },
     b = { ":Telescope dap list_breakpoints<cr>", "查看所有断点" },
     f = { ":Telescope dap frames<cr>", "查看调用栈" },
+    o = {":CocOutline<cr>", "查看符号大纲"},
   },
   t = {
     name = "命令行和文件树",
@@ -116,9 +113,9 @@ wk.register({
   },
   j = {
     name = 'Jest 测试',
-    r = { ":JestRun<cr>", "执行当前测试文件" },
+    r = { ":JestRunSingleCase<cr>", "执行光标处的测试用例" },
     b = { ":JestRunBail<cr>", "执行测试 --bail" },
-    c = { ":JestRunSingleCase<cr>", "执行光标处的用例" },
+    f = { ":JestRun<cr>", "执行当前测试文件" },
     w = { ":JestWatch<cr>", "监听当前测试文件" },
   }
 }, {
@@ -127,7 +124,7 @@ wk.register({
 
 wk.register({
   g = {
-    name = "Coc 操作",
+    name = "跳转操作",
     d = { "<Plug>(coc-definition)", "跳转到函数定义" },
     y = { "<Plug>(coc-type-definition)", "跳转到类型定义" },
     i = { "<Plug>(coc-implementation)", "跳转到实现" },
