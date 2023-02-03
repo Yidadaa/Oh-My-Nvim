@@ -7,7 +7,7 @@ require('lualine').setup {
 }
 
 local notify = require('notify')
-local max_width = 40
+local max_width = 100
 notify.setup({ max_width = max_width, max_height = 5 })
 
 local function split_length(text, length)

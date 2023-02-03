@@ -49,7 +49,7 @@ wk.register({
     r = { ":Telescope coc references<cr>", "查找所有引用" },
     b = { ":Telescope dap list_breakpoints<cr>", "查看所有断点" },
     f = { ":Telescope dap frames<cr>", "查看调用栈" },
-    o = {":CocOutline<cr>", "查看符号大纲"},
+    o = { ":CocOutline<cr>", "查看符号大纲" },
   },
   t = {
     name = "命令行和文件树",

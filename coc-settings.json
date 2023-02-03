@@ -1,5 +1,6 @@
 {
-  "coc.preferences.formatOnSave": false,
+  "coc.preferences.formatOnSave": true,
+  "coc.preferences.formatOnSaveTimeout": 200,
   "notification.statusLineProgress": false,
 
   "git.addGBlameToVirtualText": true,
