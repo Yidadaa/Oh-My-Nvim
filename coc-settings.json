@@ -16,6 +16,8 @@
 
   "coc.preferences.extensionUpdateCheck": "daily",
 
+  "rust-analyzer.lens.enable": false,
+
   "Lua.telemetry.enable": true,
   "Lua.diagnostics.globals": ["vim"],
   "Lua.runtime.version": "Lua 5.1",
