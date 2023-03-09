@@ -10,16 +10,23 @@ local notify = require('notify')
 local max_width = 100
 notify.setup({ max_width = max_width, max_height = 5 })
 
-local function split_length(text, length)
+local function split_length(s, n)
   local lines = {}
-  local next_line
-  while true do
-    if #text == 0 then
-      return lines
+  local line = ""
+  for word in s:gmatch("%S+") do
+    if #line + #word + 1 > n then
+      table.insert(lines, line)
+      line = word
+    elseif #line == 0 then
+      line = word
+    else
+      line = line .. " " .. word
     end
-    next_line, text = text:sub(1, length), text:sub(length)
-    lines[#lines + 1] = next_line
   end
+  if #line > 0 then
+    table.insert(lines, line)
+  end
+  return lines
 end
 
 vim.notify = function(msg, level, opts)
