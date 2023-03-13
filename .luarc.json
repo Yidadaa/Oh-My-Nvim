@@ -1,9 +1,8 @@
 {
-    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-    "Lua.diagnostics.disable": [
-        "deprecated"
-    ],
-    "Lua.diagnostics.globals": [
-        "vim"
-    ]
+  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+  "Lua.diagnostics.disable": ["deprecated"],
+  "Lua.diagnostics.globals": ["vim"],
+  "format.defaultConfig": {
+    "align_continuous_assign_statement": "false"
+  }
 }

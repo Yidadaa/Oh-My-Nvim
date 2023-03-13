@@ -194,14 +194,15 @@ local function jest_run(extra_params)
 
   -- find jest.config.ts
   local jest_config_path = 'jest.config.ts'
-  jest_config_path       = find_path_in_parent(current_file_path, jest_config_path)
+  jest_config_path = find_path_in_parent(current_file_path, jest_config_path)
 
   -- find jest bin
   local jest_bin_path = 'node_modules/jest/bin/jest.js'
-  jest_bin_path       = find_path_in_parent(current_file_path, jest_bin_path)
+  jest_bin_path = find_path_in_parent(current_file_path, jest_bin_path)
 
   -- find tsconfig.json
-  local ts_config_path = vim.fn.fnamemodify(find_path_in_parent(current_file_path, 'tsconfig.json'), ':h')
+  -- local ts_config_path = vim.fn.fnamemodify(find_path_in_parent(current_file_path, 'tsconfig.json'), ':h')
+  local ts_config_path = vim.fn.fnamemodify(jest_config_path, ':h')
 
   local jest_cmd = table.concat({
     'node', jest_bin_path,
@@ -209,6 +210,7 @@ local function jest_run(extra_params)
     '-c', jest_config_path,
     extra_params
   }, ' ')
+
   local cmd = [[TermExec cmd='cd ]] .. ts_config_path .. [[ && ]] .. jest_cmd .. [[']]
   vim.cmd(cmd)
 end

@@ -98,7 +98,7 @@ vim.g["coc_global_extensions"] = {
   'coc-git',
   'coc-eslint',
   'coc-prettier',
-  'coc-sumneko-lua',
+  'coc-lua',
   'coc-cmake',
   'coc-sh',
   'coc-tsserver',
