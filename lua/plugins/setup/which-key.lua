@@ -131,18 +131,21 @@ wk.register({
     r = { "<Plug>(coc-references)", "跳转到实现" },
     j = { "<Plug>(coc-diagnostics-next)", "跳转到下一个问题" },
     k = { "<Plug>(coc-diagnostics-prev)", "跳转到上一个问题" },
-
     l = { ":HopLine<cr>", "跳转到行" },
     w = { ":HopChar1<cr>", "跳转到字符" },
     p = { ":HopPattern<cr>", "跳转到模式" },
   },
   t = {
     name = "TabLine 操作",
-    n = { ":TablineTabNew<cr>", "新建 tab" },
-    j = { ":TablineBufferPrevious<cr>", "前一个 tab" },
-    k = { ":TablineBufferNext<cr>", "后一个 tab" },
-    h = { ":TablineBufferPrevious<cr>", "前一个 tab" },
-    l = { ":TablineBufferNext<cr>", "后一个 tab" },
+    c = { ":TablineTabNew<cr>", "新建文件 tab" },
+    j = { ":TablineBufferPrevious<cr>", "前一个文件 tab" },
+    k = { ":TablineBufferNext<cr>", "后一个文件 tab" },
+    h = { ":TablineBufferPrevious<cr>", "前一个文件 tab" },
+    l = { ":TablineBufferNext<cr>", "后一个文件 tab" },
+    n = { ":tabnext<cr>", "后一个 vim tab" },
+    p = { ":tabprevious<cr>", "前一个 vim tab" },
+    x = { ":tabclose<cr>", "关闭 vim tab" },
+    o = { ":tabnew<cr>", "新建 vim tab" },
     t = { ":ToggleTerm direction=float<cr>a<bs>", "打开命令行" },
   }
 }, {
