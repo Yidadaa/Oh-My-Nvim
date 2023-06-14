@@ -17,6 +17,13 @@
   "coc.preferences.extensionUpdateCheck": "daily",
 
   "rust-analyzer.lens.enable": false,
+  "languageserver": {
+    "rust": {
+      "command": "rust-analyzer",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
+    }
+  },
 
   "Lua.telemetry.enable": true,
   "Lua.diagnostics.globals": ["vim"],
