@@ -64,9 +64,9 @@ wk.register({
   g = {
     name = "Git 操作",
     g = { ":TermExec cmd=gitui<cr>", "使用 Git UI" },
-    o = { ":GitConflictChooseOurs<cr>", "Git Conflict 使用我们的更改" },
-    t = { ":GitConflictChooseTheirs<cr>", "Git Conflict 使用他们的更改" },
-    b = { ":GitConflictChooseBoth<cr>", "Git Conflict 两个全都要" },
+    o = { ":CocCommand git.keepCurrent<cr>", "Git Conflict 使用我们的更改" },
+    t = { ":CocCommand git.keepIncoming<cr>", "Git Conflict 使用他们的更改" },
+    b = { ":CocCommand git.keepBoth<cr>", "Git Conflict 两个全都要" },
     n = { ":GitConflictChooseNone<cr>", "Git Conflict 全都不要" },
     j = { ":GitConflictNextConflict<cr>", "Git Conflict 下一个冲突" },
     k = { ":GitConflictPrevConflict<cr>", "Git Conflict 上一个冲突" },
