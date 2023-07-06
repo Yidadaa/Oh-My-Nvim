@@ -75,6 +75,10 @@ nvim_tree.setup {
 
   on_attach = on_attach,
 
+  git = {
+    ignore = false,
+  },
+
   renderer = {
     root_folder_modifier = ":t",
     indent_width = 2,

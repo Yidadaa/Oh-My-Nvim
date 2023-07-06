@@ -19,10 +19,10 @@ configs.setup({
 		"rust",
 		"vue",
 		"bash"
-	}, -- one of "all" or a list of languages
+	},                      -- one of "all" or a list of languages
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	highlight = {
-		enable = true, -- false will disable the whole extension
+		enable = true,        -- false will disable the whole extension
 		disable = { "help" }, -- list of language that will be disabled
 	},
 	autopairs = {
@@ -32,7 +32,7 @@ configs.setup({
 	rainbow = {
 		enable = true,
 		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-		max_file_lines = 65536, -- Do not enable for files with more than n lines, int
+		max_file_lines = 200, -- Do not enable for files with more than n lines, int
 	},
 	context_commentstring = {
 		enable = true,
