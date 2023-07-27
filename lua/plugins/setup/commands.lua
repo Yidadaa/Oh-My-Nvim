@@ -36,6 +36,7 @@ local commands = {
   { "Coc: 全部 coc 选项",                       ":Telescope coc<cr>" },
   { "Coc Command: 全部命令",                    ":Telescope coc commands<cr>" },
   { "Eslint: Restart Eslint server",                ":CocCommand eslint.restart<cr>" },
+  { "TS: Restart TS server",                        ":CocCommand tsserver.restart<cr>" },
 }
 
 for _, cmd in pairs(commands) do
