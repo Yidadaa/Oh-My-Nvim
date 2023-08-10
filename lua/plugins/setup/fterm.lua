@@ -25,3 +25,5 @@ require('toggleterm').setup {
     },
   },
 }
+
+vim.cmd([[autocmd BufEnter * if &buftype ==# 'terminal' | startinsert! | endif]])
