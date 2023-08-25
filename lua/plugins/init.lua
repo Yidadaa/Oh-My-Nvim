@@ -51,8 +51,6 @@ lazy.setup({
     dependencies = { "nvim-telescope/telescope.nvim" }
   },
   { 'axkirillov/easypick.nvim',     dependencies = 'nvim-telescope/telescope.nvim' },
-  -- 括号
-  "p00f/nvim-ts-rainbow",
   -- 底栏
   'hoob3rt/lualine.nvim',
   -- icon
