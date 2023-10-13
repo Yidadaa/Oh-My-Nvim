@@ -2,6 +2,7 @@
   "coc.preferences.formatOnSave": true,
   "coc.preferences.formatOnSaveTimeout": 200,
   "notification.statusLineProgress": false,
+  "typescript.preferences.importModuleSpecifier": "shortest",
 
   "git.addGBlameToVirtualText": true,
   "git.showCommitInFloating": true,

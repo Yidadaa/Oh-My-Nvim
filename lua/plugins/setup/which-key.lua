@@ -35,6 +35,7 @@ wk.register({
     c = { ":Telescope coc code_actions<cr>", "显示所有代码操作" },
     f = { "<Plug>(coc-fix-current)", "AutoFix 当前行" },
     l = { "<Plug>(coc-codelens-action)", "显示 Code Lens 操作" },
+    t = { ":AerialToggle right<cr>", "切换代码大纲" },
   },
   r = {
     name = "重命名操作",
@@ -59,7 +60,7 @@ wk.register({
     h = { ":ToggleTerm direction=horizontal<cr>a<bs>", "水平分割打开命令行" },
     b = { ":ToggleTerm direction=tab<cr>a<bs>", "新 tab 中打开命令行" },
     f = { ":ToggleTerm direction=float<cr>a<bs>", "浮动窗口中打开命令行" },
-    x = { ":tabclose", "关闭标签页" },
+    x = { ":tabclose<cr>", "关闭标签页" },
   },
   g = {
     name = "Git 操作",

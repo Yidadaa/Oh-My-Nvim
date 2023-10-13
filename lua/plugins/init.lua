@@ -83,6 +83,17 @@ lazy.setup({
       require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   },
+  -- 符号跳转大纲
+  {
+    'stevearc/aerial.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons"
+    },
+  },
+
   -- CMake
   'Shatur/neovim-cmake',
   -- Debug 相关
