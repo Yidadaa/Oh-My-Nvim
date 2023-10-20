@@ -60,7 +60,8 @@ lazy.setup({
   -- 弹出框 ui，增强 vim.select 能力
   'stevearc/dressing.nvim',
   -- 缩进栏
-  "lukas-reineke/indent-blankline.nvim",
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+
   -- 猜测缩进
   {
     'nmac427/guess-indent.nvim',

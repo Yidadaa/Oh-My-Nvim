@@ -107,5 +107,6 @@ vim.g["coc_global_extensions"] = {
   'coc-css',
   'coc-markdownlint',
   'coc-rust-analyzer',
-  'coc-pyright'
+  'coc-pyright',
+  'coc-prisma'
 }
