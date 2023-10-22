@@ -104,6 +104,7 @@ vim.g["coc_global_extensions"] = {
   'coc-tsserver',
   'coc-emmet',
   '@yaegassy/coc-volar',
+  '@yaegassy/coc-tailwindcss3',
   'coc-css',
   'coc-markdownlint',
   'coc-rust-analyzer',
