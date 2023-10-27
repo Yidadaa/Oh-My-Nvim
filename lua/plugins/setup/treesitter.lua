@@ -22,11 +22,12 @@ configs.setup({
 		"prisma",
 		"java",
 		"vimdoc",
-		"markdown"
-	},                      -- one of "all" or a list of languages
+		"markdown",
+		"python"
+	},                -- one of "all" or a list of languages
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	highlight = {
-		enable = true,        -- false will disable the whole extension
+		enable = true, -- false will disable the whole extension
 	},
 	autopairs = {
 		enable = true,
