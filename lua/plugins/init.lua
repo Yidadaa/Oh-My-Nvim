@@ -60,7 +60,7 @@ lazy.setup({
   -- 弹出框 ui，增强 vim.select 能力
   'stevearc/dressing.nvim',
   -- 缩进栏
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl",    opts = {} },
 
   -- 猜测缩进
   {
@@ -68,11 +68,11 @@ lazy.setup({
     config = function() require('guess-indent').setup {} end,
   },
   -- 命令行
-  { "akinsho/toggleterm.nvim", version = 'v2.*' },
+  { "akinsho/toggleterm.nvim",             version = 'v2.*' },
   -- 主题
   'folke/tokyonight.nvim',
   -- 补全
-  { 'neoclide/coc.nvim',       branch = 'release', lazy = false },
+  { 'neoclide/coc.nvim',    branch = 'release',                        lazy = false },
   'fannheyward/telescope-coc.nvim',
   -- 快捷键指引
   "folke/which-key.nvim",
@@ -99,7 +99,7 @@ lazy.setup({
   'Shatur/neovim-cmake',
   -- Debug 相关
   'mfussenegger/nvim-dap',
-  { "rcarriga/nvim-dap-ui",         dependencies = { "mfussenegger/nvim-dap" } },
+  { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
   'nvim-telescope/telescope-dap.nvim',
   'theHamsta/nvim-dap-virtual-text',
   -- 注释
@@ -123,10 +123,10 @@ lazy.setup({
   -- 多行编辑
   'mg979/vim-visual-multi',
   -- 搜索
-  { 'VonHeikemen/searchbox.nvim', dependencies = { 'MunifTanjim/nui.nvim' } },
+  { 'VonHeikemen/searchbox.nvim',   dependencies = { 'MunifTanjim/nui.nvim' } },
   -- git
-  { 'sindrets/diffview.nvim',     dependencies = 'nvim-lua/plenary.nvim' },
-  { 'akinsho/git-conflict.nvim',  version = "",                             config = true },
+  { 'sindrets/diffview.nvim',       dependencies = 'nvim-lua/plenary.nvim' },
+  { 'akinsho/git-conflict.nvim',    version = "",                                            config = true },
   -- 项目管理
   {
     "ahmedkhalf/project.nvim",
@@ -140,4 +140,25 @@ lazy.setup({
   },
   -- buffer 操作
   'famiu/bufdelete.nvim',
+
+  -- copilot
+  {
+    "zbirenbaum/copilot.lua",
+    event = 'VeryLazy',
+    config = function()
+      require('copilot').setup({
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 75,
+          keymap = {
+            accept = "<Tab>",
+            next = "<C-j>",
+            prev = "<C-k>",
+            dismiss = "<Esc>",
+          },
+        }
+      })
+    end
+  }
 })

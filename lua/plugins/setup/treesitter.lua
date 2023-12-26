@@ -35,12 +35,13 @@ configs.setup({
 		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
 		max_file_lines = 200, -- Do not enable for files with more than n lines, int
 	},
-	context_commentstring = {
-		enable = true,
-		enable_autocmd = false
-	}
 })
 
 require("treesitter-context").setup()
 
 require("ibl").setup()
+
+require('ts_context_commentstring').setup({
+	enable = true,
+	enable_autocmd = false
+})
