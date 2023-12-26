@@ -19,8 +19,8 @@ local function init()
   end
 
   vim.defer_fn(function()
-    vim.notify(string.format("Start Time: %.5s ms", total / 1000000), nil, { title = "NeoVIM" })
-  end, 500)
+    print(string.format("Start Time: %.5s ms", total / 1000000))
+  end, 100)
 end
 
 init()

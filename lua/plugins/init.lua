@@ -38,6 +38,7 @@ lazy.setup({
   {
     'nvim-treesitter/nvim-treesitter',
     build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    event = "VeryLazy"
   },
   -- 高亮
   "nvim-treesitter/nvim-treesitter-context",
@@ -72,7 +73,7 @@ lazy.setup({
   -- 主题
   'folke/tokyonight.nvim',
   -- 补全
-  { 'neoclide/coc.nvim',    branch = 'release',                        lazy = false },
+  { 'neoclide/coc.nvim',   branch = 'release', lazy = false },
   'fannheyward/telescope-coc.nvim',
   -- 快捷键指引
   "folke/which-key.nvim",
@@ -96,14 +97,14 @@ lazy.setup({
   },
 
   -- CMake
-  'Shatur/neovim-cmake',
+  { 'Shatur/neovim-cmake', event = "VeryLazy" },
   -- Debug 相关
   'mfussenegger/nvim-dap',
-  { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
+  { "rcarriga/nvim-dap-ui",                        dependencies = { "mfussenegger/nvim-dap" } },
   'nvim-telescope/telescope-dap.nvim',
   'theHamsta/nvim-dap-virtual-text',
   -- 注释
-  'JoosepAlviste/nvim-ts-context-commentstring',
+  { 'JoosepAlviste/nvim-ts-context-commentstring', event = "VeryLazy" },
   {
     'numToStr/Comment.nvim',
     config = function()
@@ -116,7 +117,8 @@ lazy.setup({
   {
     "danymat/neogen",
     config = function() require('neogen').setup {} end,
-    dependencies = "nvim-treesitter/nvim-treesitter"
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    event = "VeryLazy"
   },
   -- 零延迟 escape
   { "max397574/better-escape.nvim", config = function() require("better_escape").setup() end },

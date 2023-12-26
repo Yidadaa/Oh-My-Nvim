@@ -20,7 +20,9 @@ configs.setup({
 		"vue",
 		"bash",
 		"prisma",
-		"java"
+		"java",
+		"vimdoc",
+		"markdown"
 	},                      -- one of "all" or a list of languages
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	highlight = {
