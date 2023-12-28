@@ -73,7 +73,7 @@ lazy.setup({
   -- 主题
   'folke/tokyonight.nvim',
   -- 补全
-  { 'neoclide/coc.nvim',   branch = 'release', lazy = false },
+  { 'neoclide/coc.nvim',   branch = 'release', event = "VeryLazy" },
   'fannheyward/telescope-coc.nvim',
   -- 快捷键指引
   "folke/which-key.nvim",
