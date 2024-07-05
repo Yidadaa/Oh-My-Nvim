@@ -73,7 +73,7 @@ lazy.setup({
   -- 主题
   'folke/tokyonight.nvim',
   -- 补全
-  { 'neoclide/coc.nvim',   branch = 'release', event = "VeryLazy" },
+  { 'neoclide/coc.nvim',    branch = 'release', event = "VeryLazy" },
   'fannheyward/telescope-coc.nvim',
   -- 快捷键指引
   "folke/which-key.nvim",
@@ -97,8 +97,9 @@ lazy.setup({
   },
 
   -- CMake
-  { 'Shatur/neovim-cmake', event = "VeryLazy" },
+  { 'Shatur/neovim-cmake',  event = "VeryLazy" },
   -- Debug 相关
+  { "nvim-neotest/nvim-nio" },
   'mfussenegger/nvim-dap',
   { "rcarriga/nvim-dap-ui",                        dependencies = { "mfussenegger/nvim-dap" } },
   'nvim-telescope/telescope-dap.nvim',
