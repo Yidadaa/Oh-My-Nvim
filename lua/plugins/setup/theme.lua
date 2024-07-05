@@ -29,8 +29,17 @@ local function split_length(s, n)
   return lines
 end
 
+local function startswith(str, start)
+  return str:sub(1, #start) == start
+end
+
 vim.notify = function(msg, level, opts)
   if type(msg) == "string" then
+    -- filter guess indent message
+    if startswith(msg, 'Did set indentation') or startswith(msg, 'Failed to detect indentation') then
+      return
+    end
+
     msg = vim.split(msg, "\n")
   end
 
