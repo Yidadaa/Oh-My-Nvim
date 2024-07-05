@@ -3,6 +3,7 @@
   "coc.preferences.formatOnSaveTimeout": 200,
   "notification.statusLineProgress": false,
   "typescript.preferences.importModuleSpecifier": "shortest",
+  "typescript.updateImportsOnFileMove.enabled": "always",
 
   "git.addGBlameToVirtualText": true,
   "git.showCommitInFloating": true,
@@ -26,7 +27,6 @@
     }
   },
 
-  "Lua.telemetry.enable": true,
   "Lua.diagnostics.globals": ["vim"],
   "Lua.runtime.version": "Lua 5.1",
 
