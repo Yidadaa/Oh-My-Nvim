@@ -30,7 +30,7 @@
   "Lua.diagnostics.globals": ["vim"],
   "Lua.runtime.version": "Lua 5.1",
 
-  "tailwindCSS.headwind.runOnSave": true,
+  "tailwindCSS.headwind.runOnSave": false,
   "colors.enable": true,
 
   "diagnostic.virtualText": true,
